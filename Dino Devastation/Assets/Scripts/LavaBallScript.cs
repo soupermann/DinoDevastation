@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class LavaBallScript : MonoBehaviour
 {
-    public float ballSpeed = 2f;
+    public float amplitude = 1.2f;  // the distance the ball will travel up and down
+    public float frequency = 2.0f;  // the speed at which the ball will move
 
-    //void goUp() {
-        //if (this.Transform.position.y < 3f) {
-            //Transform.position = new Vector3(0.2f, Transform.position.y + ballSpeed + Time.deltaTime,0f);
-        //}
-    //}
-    
+    private float startY;  // the initial y position of the ball
+
+    void Start()
+    {
+        startY = transform.position.y;  // store the initial y position
+    }
+
     void Update()
     {
-        //goUp();
+        // calculate the new y position based on time
+        float newY = startY + amplitude * Mathf.Sin(Time.time * frequency);
+
+        // update the ball's position
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 }
