@@ -9,6 +9,13 @@ public class Asteroid : MonoBehaviour
 
 	[HideInInspector] public Vector3 pos { get { return transform.position; } }
 
+	public float damage = 10f;
+
+	public HealthManager healthManager;
+	public HealthManager healthManager0;
+	public HealthManager healthManager1;
+	public HealthManager healthManager2;
+
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -30,5 +37,30 @@ public class Asteroid : MonoBehaviour
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = 0f;
 		rb.isKinematic = true;
+	}
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+		// Do this for each dino
+		if(collision.gameObject.CompareTag("Player"))
+        {
+			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
+			healthManager.TakeDamage(damage);
+        }
+		if (collision.gameObject.CompareTag("BDL"))
+		{
+			Debug.Log("DINO HITTTTT 000000"); // Testing to see if collision tag works.
+			healthManager0.TakeDamage(damage);
+		}
+		if (collision.gameObject.CompareTag("RDR"))
+		{
+			Debug.Log("DINO HITTTTT 11111"); // Testing to see if collision tag works.
+			healthManager1.TakeDamage(damage);
+		}
+		if (collision.gameObject.CompareTag("RDL"))
+		{
+			Debug.Log("DINO HITTTTT 222222"); // Testing to see if collision tag works.
+			healthManager2.TakeDamage(damage);
+		}
 	}
 }
