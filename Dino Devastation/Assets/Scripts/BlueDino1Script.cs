@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlueDino1Script : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BlueDino1Script : MonoBehaviour
     public LayerMask groundObjects;
     public float checkRadius = 1;
     public int maxJumpCount = 1;
+
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -28,6 +30,7 @@ public class BlueDino1Script : MonoBehaviour
     public void Start()
     {
         jumpCount = maxJumpCount;
+
     }
     // Update is called once per frame
     void Update()

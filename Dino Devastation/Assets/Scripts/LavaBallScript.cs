@@ -22,4 +22,20 @@ public class LavaBallScript : MonoBehaviour
         // update the ball's position
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        //if (collision.gameObject.tag == "LavaBall")
+        //{
+            Destroy(collision.gameObject);
+            // TODO : CALL DIE WHEN WE HAVE DYING ANNIMATION
+        //}
+    }
+
+    void Die()
+    {
+        // TODO : Probably best to set players health to 0 and then have trigger when health is 0 he dies
+    }
+
+
 }
