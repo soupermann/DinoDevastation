@@ -553,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 172492724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.56, y: -2.09, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1828483236}
@@ -679,7 +679,7 @@ Animator:
   m_GameObject: {fileID: 172492724}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b39876a1056534a15a896d232557832d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 178012669}
   - component: {fileID: 178012668}
   - component: {fileID: 178012667}
+  - component: {fileID: 178012672}
   m_Layer: 0
   m_Name: RedDinoL
   m_TagString: RDL
@@ -742,8 +743,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00048110308, y: -0.0028588066}
-  m_Size: {x: 0.13094571, y: 0.17733501}
+  m_Offset: {x: -0.0072974903, y: -0.0033633902}
+  m_Size: {x: 0.24215448, y: 0.4952702}
   m_Direction: 0
 --- !u!50 &178012669
 Rigidbody2D:
@@ -807,7 +808,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9a47cd4ba96c4d278b6740ffe071b8d, type: 3}
+  m_Sprite: {fileID: -266427097, guid: f971295b1647c4b59a56d04806e74ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -827,13 +828,33 @@ Transform:
   m_GameObject: {fileID: 178012666}
   m_LocalRotation: {x: -0.006788043, y: 0.9976098, z: -0.04291502, w: -0.05373074}
   m_LocalPosition: {x: 3.23, y: -2.06, z: 0}
-  m_LocalScale: {x: 6.7180004, y: 6.5350003, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1725982242}
   m_Father: {fileID: 0}
   m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 4.954, y: 186.144, z: -0.514}
+--- !u!95 &178012672
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178012666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f02f5afa23aa444b79706ec3acc41d08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &198019330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1467,7 @@ GameObject:
   - component: {fileID: 343854877}
   - component: {fileID: 343854879}
   - component: {fileID: 343854878}
+  - component: {fileID: 343854880}
   m_Layer: 0
   m_Name: BlueDinoL
   m_TagString: BDL
@@ -1462,7 +1484,7 @@ Transform:
   m_GameObject: {fileID: 343854874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.59, y: -0.19, z: 0}
-  m_LocalScale: {x: 6.7180004, y: 6.5350003, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 888778071}
@@ -1524,8 +1546,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00048110308, y: -0.0028588066}
-  m_Size: {x: 0.13094571, y: 0.17733501}
+  m_Offset: {x: 0.008358836, y: -0.010736957}
+  m_Size: {x: 0.3042605, y: 0.41367313}
   m_Direction: 0
 --- !u!212 &343854879
 SpriteRenderer:
@@ -1568,7 +1590,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57f763ba4eb7b4cb687b1e4942c41495, type: 3}
+  m_Sprite: {fileID: 621926860, guid: f3396d7207ad245efa025b851574164e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1579,6 +1601,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &343854880
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343854874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf75e9eeff8e34867a37aa47d07fae51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &397326862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,7 +3347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 140, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922386188
@@ -3686,6 +3728,7 @@ GameObject:
   - component: {fileID: 1112440120}
   - component: {fileID: 1112440119}
   - component: {fileID: 1112440118}
+  - component: {fileID: 1112440123}
   m_Layer: 0
   m_Name: RedDinoR
   m_TagString: RDR
@@ -3726,8 +3769,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00048110308, y: -0.0028588066}
-  m_Size: {x: 0.13094571, y: 0.17733501}
+  m_Offset: {x: 0.00838909, y: -0.01861459}
+  m_Size: {x: 0.3365542, y: 0.46132034}
   m_Direction: 0
 --- !u!50 &1112440120
 Rigidbody2D:
@@ -3791,7 +3834,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9a47cd4ba96c4d278b6740ffe071b8d, type: 3}
+  m_Sprite: {fileID: -266427097, guid: f971295b1647c4b59a56d04806e74ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3809,15 +3852,35 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112440117}
-  m_LocalRotation: {x: -0, y: 0.99925, z: -0, w: 0.038723625}
-  m_LocalPosition: {x: 5.8, y: -0.39, z: 0}
-  m_LocalScale: {x: 6.7180004, y: 6.5350003, z: 10}
+  m_LocalRotation: {x: 0, y: 0.99904823, z: 0, w: 0.0436195}
+  m_LocalPosition: {x: 5.8, y: -0.3, z: -0.1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1310728923}
   m_Father: {fileID: 0}
   m_RootOrder: 68
-  m_LocalEulerAnglesHint: {x: 0, y: 175.562, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 175, z: 0}
+--- !u!95 &1112440123
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112440117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0c46d9cf3c744fda93e5c72f3482406, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1116877383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,7 +4547,7 @@ RectTransform:
   m_GameObject: {fileID: 1199924966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0010002976, y: 0.001000765, z: 0.01}
+  m_LocalScale: {x: 0.002, y: 0.001, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 52854602}
@@ -4495,7 +4558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.007, y: 0.115}
+  m_AnchoredPosition: {x: -0.007, y: 0.36}
   m_SizeDelta: {x: 282.89795, y: 106.25525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199924968
@@ -4955,6 +5018,8 @@ GameObject:
   - component: {fileID: 1310728926}
   - component: {fileID: 1310728925}
   - component: {fileID: 1310728924}
+  - component: {fileID: 1310728928}
+  - component: {fileID: 1310728927}
   m_Layer: 0
   m_Name: Canvas (2)
   m_TagString: Untagged
@@ -4970,8 +5035,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310728922}
   m_LocalRotation: {x: -0, y: -0.99925, z: -0, w: 0.038723625}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.000997379, y: 0.0010007649, z: 0.010019693}
+  m_LocalPosition: {x: 0, y: 0, z: -0.001}
+  m_LocalScale: {x: 0.002, y: 0.001, z: 0.010019693}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 587125302}
@@ -4982,7 +5047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.006, y: 0.123}
+  m_AnchoredPosition: {x: 0.06, y: 0.37}
   m_SizeDelta: {x: 282.89795, y: 106.25525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310728924
@@ -5046,6 +5111,78 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!212 &1310728927
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310728922}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.75, y: 0.75}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &1310728928
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310728922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d1f146825124435885a70582004629b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1334837948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,8 +6506,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725982241}
   m_LocalRotation: {x: -0.043156777, y: -0.012877056, z: 0.0050268588, w: 0.9989727}
-  m_LocalPosition: {x: 0, y: 0, z: -0.005}
-  m_LocalScale: {x: 0.0010093279, y: 0.0009968213, z: 0.009964776}
+  m_LocalPosition: {x: 0, y: 0, z: -0.009}
+  m_LocalScale: {x: 0.002, y: 0.001, z: 0.009964776}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 689547051}
@@ -6381,7 +6518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 9.127, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.018, y: 0.108}
+  m_AnchoredPosition: {x: 0.07, y: 0.34}
   m_SizeDelta: {x: 282.89795, y: 106.25525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725982243
