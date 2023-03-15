@@ -9,13 +9,28 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Initial Scene");
     }
     public void GM1() {
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Difficulty1v1", LoadSceneMode.Single);
     }
     public void GM2() {
-        SceneManager.LoadScene("gm2", LoadSceneMode.Single);
+        SceneManager.LoadScene("Difficulty2v2", LoadSceneMode.Single);
+    }
+    public void Normal2v2() {
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
+    public void Hardcore2v2() {
+        SceneManager.LoadScene("Hardcore2v2", LoadSceneMode.Single);
+    }
+    public void Normal1v1() {
+        SceneManager.LoadScene("GameScene1v1", LoadSceneMode.Single);
+    }
+    public void Hardcore1v1() {
+        SceneManager.LoadScene("Hardcore1v1", LoadSceneMode.Single);
     }
     public void Exit() {
         Application.Quit();
+    }
+    public void Exit2Menu() {
+        SceneManager.LoadScene("Initial Scene", LoadSceneMode.Single);
     }
 
 
