@@ -46,21 +46,37 @@ public class Asteroid : MonoBehaviour
         {
 			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
 			healthManager.TakeDamage(damage);
+			if(healthManager.healthAmount <= 0)
+			{
+            Destroy(GameObject.FindWithTag("Player"));
+			}
         }
 		if (collision.gameObject.CompareTag("BDL"))
 		{
 			Debug.Log("DINO HITTTTT 000000"); // Testing to see if collision tag works.
 			healthManager0.TakeDamage(damage);
+			if(healthManager0.healthAmount <= 0)
+			{
+				Destroy(GameObject.FindWithTag("BDL"));
+			}
 		}
 		if (collision.gameObject.CompareTag("RDR"))
 		{
 			Debug.Log("DINO HITTTTT 11111"); // Testing to see if collision tag works.
 			healthManager1.TakeDamage(damage);
+			if(healthManager1.healthAmount <= 0)
+			{
+				Destroy(GameObject.FindWithTag("RDR"));
+			}
 		}
 		if (collision.gameObject.CompareTag("RDL"))
 		{
 			Debug.Log("DINO HITTTTT 222222"); // Testing to see if collision tag works.
 			healthManager2.TakeDamage(damage);
+			if(healthManager2.healthAmount <= 0)
+			{
+				Destroy(GameObject.FindWithTag("RDL"));
+			}
 		}
 	}
 }
