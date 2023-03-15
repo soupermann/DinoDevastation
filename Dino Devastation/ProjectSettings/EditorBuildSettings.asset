@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene2v2Hardcore.unity
     guid: 7209e86558ab4e8488b74b2ac06184b5
+  - enabled: 1
+    path: Assets/Scenes/Scoresheet.unity
+    guid: 3fc400dc6c315384fb9120d24d900aa2
   m_configObjects: {}
