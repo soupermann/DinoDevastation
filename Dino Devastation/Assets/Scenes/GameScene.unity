@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 172492728}
   - component: {fileID: 172492727}
   - component: {fileID: 172492726}
+  - component: {fileID: 172492730}
   m_Layer: 0
   m_Name: BlueDinoR
   m_TagString: Player
@@ -552,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 172492724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.56, y: -2.09, z: 0}
-  m_LocalScale: {x: 6.7180004, y: 6.5350003, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1828483236}
@@ -592,8 +593,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00048110308, y: -0.0028588066}
-  m_Size: {x: 0.13094571, y: 0.17733501}
+  m_Offset: {x: -0.0073969364, y: -0.010736674}
+  m_Size: {x: 0.24123669, y: 0.38216072}
   m_Direction: 0
 --- !u!50 &172492728
 Rigidbody2D:
@@ -657,7 +658,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 57f763ba4eb7b4cb687b1e4942c41495, type: 3}
+  m_Sprite: {fileID: 621926860, guid: f3396d7207ad245efa025b851574164e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -668,6 +669,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &172492730
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172492724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &178012666
 GameObject:
   m_ObjectHideFlags: 0
@@ -6722,7 +6743,7 @@ RectTransform:
   m_GameObject: {fileID: 1828483235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001, y: 0.0009999999, z: 0.01}
+  m_LocalScale: {x: 0.002, y: 0.0009999999, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 198019331}
@@ -6733,7 +6754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.009, y: 0.107}
+  m_AnchoredPosition: {x: -0.009, y: 0.35}
   m_SizeDelta: {x: 282.89795, y: 106.25525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828483237
