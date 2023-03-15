@@ -18,13 +18,13 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
     public void Hardcore2v2() {
-        SceneManager.LoadScene("Hardcore2v2", LoadSceneMode.Single);
+        SceneManager.LoadScene("GameScene2v2Hardcore", LoadSceneMode.Single);
     }
     public void Normal1v1() {
         SceneManager.LoadScene("GameScene1v1", LoadSceneMode.Single);
     }
     public void Hardcore1v1() {
-        SceneManager.LoadScene("Hardcore1v1", LoadSceneMode.Single);
+        SceneManager.LoadScene("GameScene1v1Hardcore", LoadSceneMode.Single);
     }
     public void Exit() {
         Application.Quit();
