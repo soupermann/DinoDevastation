@@ -537,9 +537,9 @@ GameObject:
   - component: {fileID: 172492727}
   - component: {fileID: 172492726}
   - component: {fileID: 172492730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueDinoR
-  m_TagString: Player
+  m_TagString: BDR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 178012668}
   - component: {fileID: 178012667}
   - component: {fileID: 178012672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedDinoL
   m_TagString: RDL
   m_Icon: {fileID: 0}
@@ -1468,7 +1468,7 @@ GameObject:
   - component: {fileID: 343854879}
   - component: {fileID: 343854878}
   - component: {fileID: 343854880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueDinoL
   m_TagString: BDL
   m_Icon: {fileID: 0}
@@ -3729,7 +3729,7 @@ GameObject:
   - component: {fileID: 1112440119}
   - component: {fileID: 1112440118}
   - component: {fileID: 1112440123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedDinoR
   m_TagString: RDR
   m_Icon: {fileID: 0}

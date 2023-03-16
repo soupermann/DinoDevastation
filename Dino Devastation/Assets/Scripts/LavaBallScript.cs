@@ -23,13 +23,13 @@ public class LavaBallScript : MonoBehaviour
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.tag == "LavaBall")
-        //{
+        if (collision.gameObject.CompareTag("BDL") || collision.gameObject.CompareTag("BDR") || collision.gameObject.CompareTag("RDL") || collision.gameObject.CompareTag("RDR"))
+        {
             Destroy(collision.gameObject);
             // TODO : CALL DIE WHEN WE HAVE DYING ANNIMATION
-        //}
+        }
     }
 
     void Die()
