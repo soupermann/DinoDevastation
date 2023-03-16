@@ -47,7 +47,7 @@ public class Asteroid : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
 		// Do this for each dino
-		if(collision.gameObject.CompareTag("Player"))
+		if(collision.gameObject.CompareTag("BDR"))
         {
 			counter = counter + damage;
 			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
@@ -60,7 +60,7 @@ public class Asteroid : MonoBehaviour
 			}
 			if(healthManager.healthAmount <= 0)
 			{
-            Destroy(GameObject.FindWithTag("Player"));
+            Destroy(GameObject.FindWithTag("BDR"));
 			}
         }
 		if (collision.gameObject.CompareTag("BDL"))
