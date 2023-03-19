@@ -12,6 +12,7 @@ public class BlueDino1Script : MonoBehaviour
     public float checkRadius = 1;
     public int maxJumpCount = 1;
 
+    public TurnController TurnController;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -19,6 +20,19 @@ public class BlueDino1Script : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded;
     private int jumpCount;
+
+    // Item Manager code
+    
+
+    private int wallHealth = 50;
+    private int wallAmount = 1;
+
+    private bool placeWall() {
+        if (TurnController.BLturn && wallAmount > 0) {
+
+        }
+    } 
+
 
 
     // Awak is called agter all objects are initialized

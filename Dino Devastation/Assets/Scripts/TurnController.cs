@@ -19,6 +19,10 @@ public class TurnController : MonoBehaviour
     public bool BRturn = false;
     public bool RLturn = false;
     public bool RRturn = false;
+    
+    private bool selectedWall = false;
+    private bool selectedRun = false;
+    private bool selectedAsteroid= false;
 
     
     // Define the turn time limit
@@ -42,32 +46,32 @@ public class TurnController : MonoBehaviour
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy)
                 {
-                    /*BLturn = true;
+                    BLturn = true;
                     BRturn = false;
                     RLturn = false;
-                    RRturn = false;*/
+                    RRturn = false;
                 }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy)
                 {
-                    /*BLturn = false;
+                    BLturn = false;
                     BRturn = false;
                     RLturn = false;
-                    RRturn = true;*/
+                    RRturn = true;
                 }
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy)
                 {
-                    /*BLturn = false;
+                    BLturn = false;
                     BRturn = true;
                     RLturn = false;
-                    RRturn = false;*/
+                    RRturn = false;
                 }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy)
                 {
                     
-                    /*BLturn = false;
+                    BLturn = false;
                     BRturn = false;
                     RLturn = true;
-                    RRturn = false;*/
+                    RRturn = false;
                 }
             // Reset the turn start time
 
