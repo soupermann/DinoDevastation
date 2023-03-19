@@ -32,7 +32,25 @@ public class ThrowingScript : MonoBehaviour
 	Vector2 force;
 	float distance;
 
+	//public GameObject objectToDisable; BALL
+	public bool isEnabled = false;
+
+	public void OnButtonClick()
+	{
+		isEnabled = !isEnabled; // toggle the value, only let is be available when clicked.
+	}
+
+
 	//---------------------------------------
+	public void ThrowAsteroid()
+    {
+		// Used for onclick call to throw asteroid.
+		Start();
+		Update();
+		OnDragStart();
+		OnDrag();
+		OnDragEnd();
+    }
 	void Start()
 	{
 		cam = Camera.main;
@@ -41,6 +59,8 @@ public class ThrowingScript : MonoBehaviour
 
 	void Update()
 	{
+		ball.gameObject.SetActive(isEnabled);
+
 		if (Input.GetMouseButtonDown(0))
 		{
 			isDragging = true;
