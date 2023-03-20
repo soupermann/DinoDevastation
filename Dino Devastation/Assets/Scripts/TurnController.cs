@@ -16,7 +16,11 @@ public class TurnController : MonoBehaviour
     public GameObject asteroid0;
     public GameObject asteroid1;
     public GameObject asteroid2;
-    
+    Vector3 originalPos;
+    Vector3 originalPos0;
+    Vector3 originalPos1;
+    Vector3 originalPos2;
+
 
 
     // Keep track of time
@@ -33,8 +37,12 @@ public class TurnController : MonoBehaviour
     public bool selectedAsteroid = false;
     void Awake()
    {
-      
-      asteroid.SetActive(true);
+        originalPos = asteroid.transform.position;
+        originalPos0 = asteroid0.transform.position;
+        originalPos1 = asteroid1.transform.position;
+        originalPos2 = asteroid2.transform.position;
+
+        asteroid.SetActive(true);
       asteroid0.SetActive(false);
       asteroid1.SetActive(false);
       asteroid2.SetActive(false);
@@ -63,7 +71,8 @@ public class TurnController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit)
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
-               {   
+               {
+                    asteroid1.transform.position = originalPos1;
                     asteroid0.SetActive(false);
                     asteroid.SetActive(false);
                     asteroid2.SetActive(false);
@@ -77,7 +86,7 @@ public class TurnController : MonoBehaviour
                 }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
-                   
+                    asteroid0.transform.position = originalPos0; 
                     BLturn = false;
                     BRturn = false;
                     RLturn = false;
@@ -91,7 +100,7 @@ public class TurnController : MonoBehaviour
                 }
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
-                    
+                    asteroid2.transform.position = originalPos2;
                     asteroid1.SetActive(false);
                     asteroid0.SetActive(false);
                     asteroid.SetActive(false);
@@ -104,7 +113,7 @@ public class TurnController : MonoBehaviour
                 }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
-                    
+                    asteroid.transform.position = originalPos;
                     asteroid2.SetActive(false);
                     asteroid1.SetActive(false);
                     asteroid0.SetActive(false);
