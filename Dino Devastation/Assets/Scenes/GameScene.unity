@@ -765,7 +765,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
-  asteroid: {fileID: 407585509}
+  asteroid: {fileID: 0}
 --- !u!70 &172492727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
-  asteroid: {fileID: 1199917246}
+  asteroid: {fileID: 0}
 --- !u!50 &343854877
 Rigidbody2D:
   serializedVersion: 4
@@ -5912,7 +5912,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282525970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
@@ -7369,7 +7369,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577579676}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
@@ -7417,7 +7417,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593683180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
@@ -8553,7 +8553,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809729073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
