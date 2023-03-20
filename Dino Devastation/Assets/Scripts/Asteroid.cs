@@ -153,7 +153,6 @@ public class Asteroid : MonoBehaviour
 			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var BDR = GameObject.FindWithTag("BDR");
 			counter = counter + damage;
-			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
 			healthManager.TakeDamage(damage);
 			if(healthManager.healthAmount+healthManager0.healthAmount <= 0)
 			{
@@ -174,7 +173,6 @@ public class Asteroid : MonoBehaviour
 			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var BDL = GameObject.FindWithTag("BDL");
 			counter = counter + damage;
-			Debug.Log("DINO HITTTTT 000000"); // Testing to see if collision tag works.
 			healthManager0.TakeDamage(damage);
 			if(healthManager0.healthAmount+healthManager.healthAmount <= 0)
 			{
@@ -195,7 +193,6 @@ public class Asteroid : MonoBehaviour
 			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var RDR = GameObject.FindWithTag("RDR");
 			counter2 = counter2 + damage;
-			Debug.Log("DINO HITTTTT 11111"); // Testing to see if collision tag works.
 			healthManager1.TakeDamage(damage);
 			if(healthManager1.healthAmount+healthManager2.healthAmount <= 0)
 			{
@@ -216,7 +213,6 @@ public class Asteroid : MonoBehaviour
 			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var RDL = GameObject.FindWithTag("RDL");
 			counter2 = counter2 + damage;
-			Debug.Log("DINO HITTTTT 222222"); // Testing to see if collision tag works.
 
 			healthManager2.TakeDamage(damage);
 			if (healthManager1.healthAmount+healthManager2.healthAmount <= 0)
