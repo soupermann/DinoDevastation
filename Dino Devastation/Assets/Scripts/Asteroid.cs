@@ -19,6 +19,8 @@ public class Asteroid : MonoBehaviour
 	public HealthManager healthManager0;
 	public HealthManager healthManager1;
 	public HealthManager healthManager2;
+
+
 	
 
 	void Awake()

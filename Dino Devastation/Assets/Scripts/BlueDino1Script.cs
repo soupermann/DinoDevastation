@@ -21,17 +21,19 @@ public class BlueDino1Script : MonoBehaviour
     private bool isGrounded;
     private int jumpCount;
 
+    public Asteroid asteroid;
+
     // Item Manager code
     
 
     private int wallHealth = 50;
     private int wallAmount = 1;
 
-    private bool placeWall() {
-        if (TurnController.BLturn && wallAmount > 0) {
+    //private bool placeWall() {
+    //    if (TurnController.BLturn && wallAmount > 0) {
 
-        }
-    } 
+    //    }
+    //} 
 
 
 

@@ -11,7 +11,9 @@ public class TurnController : MonoBehaviour
     // Define the teams
     public GameObject[] players;
     public GameObject turnArrow;
-    
+
+
+    // Keep track of time
     public int currentPlayer = 0;
     public float turnStartTime = 0f;
 
@@ -19,12 +21,12 @@ public class TurnController : MonoBehaviour
     public bool BRturn = false;
     public bool RLturn = false;
     public bool RRturn = false;
-    
-    private bool selectedWall = false;
-    private bool selectedRun = false;
-    private bool selectedAsteroid= false;
 
-    
+    public bool selectedWall = false;
+    public bool selectedRun = false;
+    public bool selectedAsteroid = false;
+
+
     // Define the turn time limit
     public float turnTimeLimit = 5f; // in seconds
     
