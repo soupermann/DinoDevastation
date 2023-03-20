@@ -145,6 +145,7 @@ public class Asteroid : MonoBehaviour
 		// Do this for each dino
 		if(collision.gameObject.CompareTag("BDR"))
         {
+			var BDR = GameObject.FindWithTag("BDR");
 			counter = counter + damage;
 			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
 			healthManager.TakeDamage(damage);
@@ -156,11 +157,13 @@ public class Asteroid : MonoBehaviour
 			}
 			if(healthManager.healthAmount <= 0)
 			{
-            Destroy(GameObject.FindWithTag("BDR"));
+				//Destroy(BDR);
+				BDR.SetActive(false);
 			}
         }
 		if (collision.gameObject.CompareTag("BDL"))
 		{
+			var BDL = GameObject.FindWithTag("BDL");
 			counter = counter + damage;
 			Debug.Log("DINO HITTTTT 000000"); // Testing to see if collision tag works.
 			healthManager0.TakeDamage(damage);
@@ -172,11 +175,13 @@ public class Asteroid : MonoBehaviour
 			}
 			if(healthManager0.healthAmount <= 0)
 			{
-				Destroy(GameObject.FindWithTag("BDL"));
+				//Destroy(BDL);
+				BDL.SetActive(false);
 			}
 		}
 		if (collision.gameObject.CompareTag("RDR"))
 		{
+			var RDR = GameObject.FindWithTag("RDR");
 			counter2 = counter2 + damage;
 			Debug.Log("DINO HITTTTT 11111"); // Testing to see if collision tag works.
 			healthManager1.TakeDamage(damage);
@@ -188,11 +193,13 @@ public class Asteroid : MonoBehaviour
 			}
 			if(healthManager1.healthAmount <= 0)
 			{
-				Destroy(GameObject.FindWithTag("RDR"));
+				//Destroy(RDR);
+				RDR.SetActive(false);
 			}
 		}
 		if (collision.gameObject.CompareTag("RDL"))
 		{
+			var RDL = GameObject.FindWithTag("RDL");
 			counter2 = counter2 + damage;
 			Debug.Log("DINO HITTTTT 222222"); // Testing to see if collision tag works.
 			healthManager2.TakeDamage(damage);
@@ -204,7 +211,8 @@ public class Asteroid : MonoBehaviour
 			}
 			if(healthManager2.healthAmount <= 0)
 			{
-				Destroy(GameObject.FindWithTag("RDL"));
+				//Destroy(RDL);
+				RDL.SetActive(false);
 			}
 		}
 	}
