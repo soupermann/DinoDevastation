@@ -11,6 +11,12 @@ public class TurnController : MonoBehaviour
     // Define the teams
     public GameObject[] players;
     public GameObject turnArrow;
+    public Transform throwableObject;
+    public GameObject asteroid;
+    public GameObject asteroid0;
+    public GameObject asteroid1;
+    public GameObject asteroid2;
+    
 
 
     // Keep track of time
@@ -25,6 +31,14 @@ public class TurnController : MonoBehaviour
     public bool selectedWall = false;
     public bool selectedRun = false;
     public bool selectedAsteroid = false;
+    void Awake()
+   {
+      
+      asteroid.SetActive(true);
+      asteroid0.SetActive(false);
+      asteroid1.SetActive(false);
+      asteroid2.SetActive(false);
+   }
 
 
     // Define the turn time limit
@@ -33,6 +47,8 @@ public class TurnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+     
+      
         // Initialize the turn variables
         currentPlayer = 0;
         turnStartTime = Time.time;
@@ -48,35 +64,61 @@ public class TurnController : MonoBehaviour
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy)
                 {
+                    
+                    
+                    
+                    asteroid0.SetActive(false);
+                    asteroid.SetActive(false);
+                    asteroid2.SetActive(false);
+                    asteroid1.SetActive(true);
                     BLturn = true;
                     BRturn = false;
                     RLturn = false;
                     RRturn = false;
+                    //asteroid.SetActive(true);
+   
                 }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy)
                 {
+                   
                     BLturn = false;
                     BRturn = false;
                     RLturn = false;
                     RRturn = true;
+                    asteroid.SetActive(false);
+                    
+                    asteroid1.SetActive(false);
+                    asteroid2.SetActive(false);
+                    asteroid0.SetActive(true);
+                    //asteroid.SetActive(true);
                 }
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy)
                 {
+                    
+                    asteroid1.SetActive(false);
+                    asteroid0.SetActive(false);
+                    asteroid.SetActive(false);
+                    asteroid2.SetActive(true);
                     BLturn = false;
                     BRturn = true;
                     RLturn = false;
                     RRturn = false;
+                    //asteroid2.SetActive(true);
                 }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy)
                 {
                     
+                    asteroid2.SetActive(false);
+                    asteroid1.SetActive(false);
+                    asteroid0.SetActive(false);
+                    asteroid.SetActive(true);
                     BLturn = false;
                     BRturn = false;
                     RLturn = true;
                     RRturn = false;
+                    //asteroid1.SetActive(true);
                 }
             // Reset the turn start time
-
             currentPlayer++;
             if (currentPlayer == 4) {currentPlayer = 0;}
             turnStartTime = Time.time;

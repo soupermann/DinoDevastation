@@ -765,7 +765,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
-  asteroid: {fileID: 0}
+  asteroid: {fileID: 407585509}
 --- !u!70 &172492727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -917,7 +917,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
-  asteroid: {fileID: 0}
+  asteroid: {fileID: 1430846149}
 --- !u!70 &178012668
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1968,9 +1968,10 @@ GameObject:
   - component: {fileID: 407585511}
   - component: {fileID: 407585510}
   - component: {fileID: 407585509}
+  - component: {fileID: 407585513}
   m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Untagged
+  m_Name: Asteroid0
+  m_TagString: bdrdino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2004,11 +2005,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
+  mainCamera: {fileID: 0}
+  secondCamera: {fileID: 0}
   damage: 10
+  respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
   healthManager1: {fileID: 1773212208}
   healthManager2: {fileID: 1987996043}
+  respawnTime: 2
+  respawnOffset: 0.5
+  respawnThreshold: 0.01
 --- !u!50 &407585510
 Rigidbody2D:
   serializedVersion: 4
@@ -2098,6 +2105,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &407585513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407585507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 407585509}
+  trajectory: {fileID: 425227239}
+  pushForce: 4
+  isThrow: 0
 --- !u!1 &414533430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,9 +2671,14 @@ MonoBehaviour:
   - {fileID: 172492724}
   - {fileID: 178012666}
   turnArrow: {fileID: 1667652761}
-  currentPlayer: 0
-  turnStartTime: 0
-  BLturn: 0
+  throwableObject: {fileID: 0}
+  asteroid: {fileID: 1199917244}
+  asteroid0: {fileID: 407585507}
+  asteroid1: {fileID: 2134124746}
+  asteroid2: {fileID: 1430846147}
+  currentPlayer: 1
+  turnStartTime: 3
+  BLturn: 1
   BRturn: 0
   RLturn: 0
   RRturn: 0
@@ -4585,7 +4613,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
-  asteroid: {fileID: 0}
+  asteroid: {fileID: 2134124748}
 --- !u!70 &1112440119
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5220,9 +5248,10 @@ GameObject:
   - component: {fileID: 1199917248}
   - component: {fileID: 1199917247}
   - component: {fileID: 1199917246}
+  - component: {fileID: 1199917250}
   m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Untagged
+  m_Name: Asteroid01
+  m_TagString: bdldino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5256,11 +5285,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
+  mainCamera: {fileID: 0}
+  secondCamera: {fileID: 0}
   damage: 10
+  respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
   healthManager1: {fileID: 1773212208}
   healthManager2: {fileID: 1987996043}
+  respawnTime: 2
+  respawnOffset: 0.5
+  respawnThreshold: 0.01
 --- !u!50 &1199917247
 Rigidbody2D:
   serializedVersion: 4
@@ -5350,6 +5385,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1199917250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199917244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1199917246}
+  trajectory: {fileID: 425227239}
+  pushForce: 4
+  isThrow: 0
 --- !u!1 &1199924966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,6 +5920,7 @@ MonoBehaviour:
   ball: {fileID: 407585509}
   trajectory: {fileID: 1925955175}
   pushForce: 4
+  isThrow: 0
 --- !u!4 &1282525972
 Transform:
   m_ObjectHideFlags: 0
@@ -6427,9 +6479,10 @@ GameObject:
   - component: {fileID: 1430846151}
   - component: {fileID: 1430846150}
   - component: {fileID: 1430846149}
+  - component: {fileID: 1430846153}
   m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Untagged
+  m_Name: Asteroid2
+  m_TagString: rdldino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6463,11 +6516,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
+  mainCamera: {fileID: 0}
+  secondCamera: {fileID: 0}
   damage: 10
+  respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
   healthManager1: {fileID: 1773212208}
   healthManager2: {fileID: 1987996043}
+  respawnTime: 2
+  respawnOffset: 0.5
+  respawnThreshold: 0.01
 --- !u!50 &1430846150
 Rigidbody2D:
   serializedVersion: 4
@@ -6557,6 +6616,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1430846153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430846147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1430846149}
+  trajectory: {fileID: 425227239}
+  pushForce: 4
+  isThrow: 0
 --- !u!1 &1445486146
 GameObject:
   m_ObjectHideFlags: 0
@@ -7302,6 +7377,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  isThrow: 0
 --- !u!4 &1577579678
 Transform:
   m_ObjectHideFlags: 0
@@ -7349,6 +7425,7 @@ MonoBehaviour:
   ball: {fileID: 2134124748}
   trajectory: {fileID: 1498498555}
   pushForce: 4
+  isThrow: 0
 --- !u!4 &1593683182
 Transform:
   m_ObjectHideFlags: 0
@@ -8349,14 +8426,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792686319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1199917246}
-  trajectory: {fileID: 0}
+  trajectory: {fileID: 425227239}
   pushForce: 4
+  isThrow: 0
 --- !u!114 &1792686322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8483,6 +8561,7 @@ MonoBehaviour:
   ball: {fileID: 1430846149}
   trajectory: {fileID: 108075864}
   pushForce: 4
+  isThrow: 0
 --- !u!4 &1809729075
 Transform:
   m_ObjectHideFlags: 0
@@ -10429,9 +10508,10 @@ GameObject:
   - component: {fileID: 2134124750}
   - component: {fileID: 2134124749}
   - component: {fileID: 2134124748}
+  - component: {fileID: 2134124752}
   m_Layer: 0
-  m_Name: Asteroid
-  m_TagString: Untagged
+  m_Name: Asteroid1
+  m_TagString: RdrDino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10465,11 +10545,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
+  mainCamera: {fileID: 0}
+  secondCamera: {fileID: 0}
   damage: 10
+  respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
   healthManager1: {fileID: 1773212208}
   healthManager2: {fileID: 1987996043}
+  respawnTime: 2
+  respawnOffset: 0.5
+  respawnThreshold: 0.01
 --- !u!50 &2134124749
 Rigidbody2D:
   serializedVersion: 4
@@ -10559,6 +10645,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2134124752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134124746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 2134124748}
+  trajectory: {fileID: 425227239}
+  pushForce: 4
+  isThrow: 0
 --- !u!1 &2139053930
 GameObject:
   m_ObjectHideFlags: 0

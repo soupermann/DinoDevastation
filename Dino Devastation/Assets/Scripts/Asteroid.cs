@@ -22,7 +22,6 @@ public class Asteroid : MonoBehaviour
 	public HealthManager healthManager1;
 	public HealthManager healthManager2;
 	
-
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -72,7 +71,7 @@ public class Asteroid : MonoBehaviour
 
     void Update()
     {
-        // Check if the object is moving
+        
         if (rb.velocity.magnitude > respawnThreshold)
         {
             timeSinceStop = 0f;

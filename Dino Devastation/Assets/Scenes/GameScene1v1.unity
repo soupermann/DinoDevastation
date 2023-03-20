@@ -210,10 +210,7 @@ GameObject:
   - component: {fileID: 73338654}
   - component: {fileID: 73338653}
   - component: {fileID: 73338652}
-  - component: {fileID: 73338651}
-  - component: {fileID: 73338650}
-  - component: {fileID: 73338655}
-  - component: {fileID: 73338656}
+  - component: {fileID: 73338657}
   m_Layer: 0
   m_Name: zoomCamera
   m_TagString: MainCamera
@@ -221,44 +218,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &73338650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73338649}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3469d4bdae1c049aa84cb53f084099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondCamera: {fileID: 73338653}
-  zoomAmount: 2
-  zoomTime: 2
-  throwableObject: {fileID: 0}
-  isZooming: 0
-  zoomStartTime: 0
-  originalPosition: {x: 0, y: 0, z: 0}
---- !u!114 &73338651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73338649}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab21a612e968b247b17a0033fd0c726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1199917245}
-  secondCamera: {fileID: 73338653}
-  zoomSpeed: 2
-  maxZoom: 5
-  minZoom: 1
-  zoomAmount: 2
-  zoomTime: 2
 --- !u!81 &73338652
 AudioListener:
   m_ObjectHideFlags: 0
@@ -325,22 +284,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &73338655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73338649}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 589d22415440bd64c861753ca07dc66d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1199917244}
-  zoomDuration: 2
-  zoomAmount: 2
---- !u!114 &73338656
+--- !u!114 &73338657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2916,96 +2860,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922386186}
   m_CullTransparentMesh: 1
---- !u!1 &977430344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 977430346}
-  - component: {fileID: 977430345}
-  - component: {fileID: 977430347}
-  - component: {fileID: 977430348}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &977430345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977430344}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88dccf69e7716754ea3966bc5a6b170b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1199917245}
-  mainCamera: {fileID: 0}
-  zoomCamera: {fileID: 0}
-  delay: 2
-  zoomSpeed: 2
-  maxZoom: 5
-  minZoom: 1
-  zoomAmount: 3
-  zoomTime: 2
---- !u!4 &977430346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977430344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 475.36084, y: 286.27173, z: 2.079657}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 74
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &977430347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977430344}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab21a612e968b247b17a0033fd0c726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1199917245}
-  secondCamera: {fileID: 73338653}
-  zoomSpeed: 2
-  maxZoom: 5
-  minZoom: 1
-  zoomAmount: 2
-  zoomTime: 2
---- !u!114 &977430348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977430344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76c53ba213ca774788379752313b91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1199917245}
-  mainCamera: {fileID: 1097977796}
-  zoomCamera: {fileID: 73338653}
-  delay: 3
 --- !u!1 &1074677430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,9 +3114,7 @@ GameObject:
   - component: {fileID: 1097977797}
   - component: {fileID: 1097977796}
   - component: {fileID: 1097977795}
-  - component: {fileID: 1097977798}
-  - component: {fileID: 1097977799}
-  - component: {fileID: 1097977800}
+  - component: {fileID: 1097977801}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3336,59 +3188,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1097977798
+--- !u!114 &1097977801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097977794}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab21a612e968b247b17a0033fd0c726, type: 3}
+  m_Script: {fileID: 11500000, guid: 88dccf69e7716754ea3966bc5a6b170b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   throwableObject: {fileID: 1199917245}
-  secondCamera: {fileID: 1097977796}
+  mainCamera: {fileID: 1097977796}
+  zoomCamera: {fileID: 73338653}
+  delay: 2
   zoomSpeed: 2
   maxZoom: 5
   minZoom: 1
   zoomAmount: 2
   zoomTime: 2
---- !u!114 &1097977799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097977794}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3469d4bdae1c049aa84cb53f084099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondCamera: {fileID: 1097977796}
-  zoomAmount: 2
-  zoomTime: 2
-  throwableObject: {fileID: 0}
-  isZooming: 0
-  zoomStartTime: 0
-  originalPosition: {x: 0, y: 0, z: 0}
---- !u!114 &1097977800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097977794}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 589d22415440bd64c861753ca07dc66d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwableObject: {fileID: 1112440122}
-  zoomDuration: 2
-  zoomAmount: 2
 --- !u!1 &1112440117
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,7 +3887,7 @@ GameObject:
   - component: {fileID: 1199917246}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4102,6 +3922,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   col: {fileID: 0}
   mainCamera: {fileID: 1097977796}
+  secondCamera: {fileID: 73338653}
   damage: 10
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 635060809}

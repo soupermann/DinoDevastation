@@ -9,6 +9,10 @@ TagManager:
   - RDR
   - BDR
   - Asteroid
+  - RdrDino
+  - bdldino
+  - bdrdino
+  - rdldino
   layers:
   - Default
   - TransparentFX
