@@ -2114,7 +2114,6 @@ MonoBehaviour:
   col: {fileID: 0}
   mainCamera: {fileID: 0}
   secondCamera: {fileID: 0}
-  damage: 10
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
@@ -2792,7 +2791,7 @@ MonoBehaviour:
   selectedWall: 0
   selectedRun: 0
   selectedAsteroid: 0
-  turnTimeLimit: 5
+  turnTimeLimit: 15
 --- !u!4 &518589197
 Transform:
   m_ObjectHideFlags: 0
@@ -5399,7 +5398,6 @@ MonoBehaviour:
   col: {fileID: 0}
   mainCamera: {fileID: 0}
   secondCamera: {fileID: 0}
-  damage: 10
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
@@ -6737,7 +6735,6 @@ MonoBehaviour:
   col: {fileID: 0}
   mainCamera: {fileID: 1097977796}
   secondCamera: {fileID: 1680210220}
-  damage: 10
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
@@ -10811,7 +10808,6 @@ MonoBehaviour:
   col: {fileID: 0}
   mainCamera: {fileID: 0}
   secondCamera: {fileID: 0}
-  damage: 10
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}

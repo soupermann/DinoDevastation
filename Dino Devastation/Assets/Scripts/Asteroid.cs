@@ -12,7 +12,7 @@ public class Asteroid : MonoBehaviour
 	[HideInInspector] public Vector3 pos { get { return transform.position; } }
     public Camera mainCamera;
 	public Camera secondCamera;
-	public float damage = 10f;
+	
 	public static float counter;
 	public static float counter2;
 	public static string instance;
@@ -21,6 +21,8 @@ public class Asteroid : MonoBehaviour
 	public HealthManager healthManager0;
 	public HealthManager healthManager1;
 	public HealthManager healthManager2;
+	private Vector2 initialPosition;
+	private float distanceTraveled;
 	
 	void Awake()
 	{
@@ -55,9 +57,10 @@ public class Asteroid : MonoBehaviour
     private float timeSinceStop;
     private bool isMoving;
 
-    void Start()
+	void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+		initialPosition = transform.position;
+		rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         startRot = transform.rotation;
         timeSinceStop = 0f;
@@ -71,7 +74,7 @@ public class Asteroid : MonoBehaviour
 
     void Update()
     {
-        
+        distanceTraveled = Vector2.Distance(initialPosition, transform.position);
         if (rb.velocity.magnitude > respawnThreshold)
         {
             timeSinceStop = 0f;
@@ -145,6 +148,9 @@ public class Asteroid : MonoBehaviour
 		// Do this for each dino
 		if(collision.gameObject.CompareTag("BDR"))
         {
+			float baseDamage = 20f; // Set the base damage of the object
+			float maxDistance = 10f;
+			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var BDR = GameObject.FindWithTag("BDR");
 			counter = counter + damage;
 			Debug.Log("DINO HITTTTT"); // Testing to see if collision tag works.
@@ -163,6 +169,9 @@ public class Asteroid : MonoBehaviour
         }
 		if (collision.gameObject.CompareTag("BDL"))
 		{
+			float baseDamage = 20f; // Set the base damage of the object
+			float maxDistance = 10f;
+			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var BDL = GameObject.FindWithTag("BDL");
 			counter = counter + damage;
 			Debug.Log("DINO HITTTTT 000000"); // Testing to see if collision tag works.
@@ -181,6 +190,9 @@ public class Asteroid : MonoBehaviour
 		}
 		if (collision.gameObject.CompareTag("RDR"))
 		{
+			float baseDamage = 20f; // Set the base damage of the object
+			float maxDistance = 10f;
+			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var RDR = GameObject.FindWithTag("RDR");
 			counter2 = counter2 + damage;
 			Debug.Log("DINO HITTTTT 11111"); // Testing to see if collision tag works.
@@ -199,11 +211,15 @@ public class Asteroid : MonoBehaviour
 		}
 		if (collision.gameObject.CompareTag("RDL"))
 		{
+			float baseDamage = 20f; // Set the base damage of the object
+			float maxDistance = 10f;
+			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var RDL = GameObject.FindWithTag("RDL");
 			counter2 = counter2 + damage;
 			Debug.Log("DINO HITTTTT 222222"); // Testing to see if collision tag works.
+
 			healthManager2.TakeDamage(damage);
-			if(healthManager1.healthAmount+healthManager2.healthAmount <= 0)
+			if (healthManager1.healthAmount+healthManager2.healthAmount <= 0)
 			{
 				instance = "Blue";
 				PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
