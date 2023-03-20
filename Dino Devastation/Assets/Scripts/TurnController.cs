@@ -62,11 +62,8 @@ public class TurnController : MonoBehaviour
         // Check if the current player's turn is over
         if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit)
         {
-            if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy)
-                {
-                    
-                    
-                    
+            if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
+               {   
                     asteroid0.SetActive(false);
                     asteroid.SetActive(false);
                     asteroid2.SetActive(false);
@@ -78,7 +75,7 @@ public class TurnController : MonoBehaviour
                     //asteroid.SetActive(true);
    
                 }
-            else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy)
+            else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
                    
                     BLturn = false;
@@ -92,7 +89,7 @@ public class TurnController : MonoBehaviour
                     asteroid0.SetActive(true);
                     //asteroid.SetActive(true);
                 }
-            else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy)
+            else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
                     
                     asteroid1.SetActive(false);
@@ -105,7 +102,7 @@ public class TurnController : MonoBehaviour
                     RRturn = false;
                     //asteroid2.SetActive(true);
                 }
-            else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy)
+            else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
                 {
                     
                     asteroid2.SetActive(false);
@@ -118,6 +115,7 @@ public class TurnController : MonoBehaviour
                     RRturn = false;
                     //asteroid1.SetActive(true);
                 }
+
             // Reset the turn start time
             currentPlayer++;
             if (currentPlayer == 4) {currentPlayer = 0;}
