@@ -1104,6 +1104,8 @@ MonoBehaviour:
     m_Bits: 256
   checkRadius: 1
   maxJumpCount: 1
+  TurnController: {fileID: 0}
+  asteroid: {fileID: 0}
 --- !u!50 &343854877
 Rigidbody2D:
   serializedVersion: 4
@@ -3171,6 +3173,8 @@ MonoBehaviour:
     m_Bits: 256
   checkRadius: 1
   maxJumpCount: 1
+  TurnController: {fileID: 0}
+  asteroid: {fileID: 0}
 --- !u!70 &1112440119
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3840,11 +3844,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
+  mainCamera: {fileID: 1097977796}
   damage: 50
+  respawnOnlyWhenThrown: 1
   healthManager: {fileID: 484249843}
   healthManager0: {fileID: 1445486147}
   healthManager1: {fileID: 1773212208}
   healthManager2: {fileID: 284457912}
+  respawnTime: 2
+  respawnOffset: 0.5
+  respawnThreshold: 0.01
 --- !u!50 &1199917247
 Rigidbody2D:
   serializedVersion: 4
@@ -6913,6 +6922,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 1730019234}
   pushForce: 4
+  isThrow: 0
 --- !u!4 &1971313414
 Transform:
   m_ObjectHideFlags: 0

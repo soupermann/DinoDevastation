@@ -8,6 +8,7 @@ TagManager:
   - RDL
   - RDR
   - BDR
+  - Asteroid
   layers:
   - Default
   - TransparentFX
