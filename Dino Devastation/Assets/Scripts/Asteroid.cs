@@ -22,7 +22,8 @@ public class Asteroid : MonoBehaviour
 	public HealthManager healthManager1;
 	public HealthManager healthManager2;
 	private Vector2 initialPosition;
-	private float distanceTraveled;
+
+	private float damage = 10f;
 	
 	void Awake()
 	{
@@ -74,7 +75,6 @@ public class Asteroid : MonoBehaviour
 
     void Update()
     {
-        distanceTraveled = Vector2.Distance(initialPosition, transform.position);
         if (rb.velocity.magnitude > respawnThreshold)
         {
             timeSinceStop = 0f;
@@ -145,12 +145,10 @@ public class Asteroid : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+
 		// Do this for each dino
-		if(collision.gameObject.CompareTag("BDR"))
+		if (collision.gameObject.CompareTag("BDR"))
         {
-			float baseDamage = 20f; // Set the base damage of the object
-			float maxDistance = 10f;
-			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
 			var BDR = GameObject.FindWithTag("BDR");
 			counter = counter + damage;
 			healthManager.TakeDamage(damage);
@@ -165,12 +163,12 @@ public class Asteroid : MonoBehaviour
 				//Destroy(BDR);
 				BDR.SetActive(false);
 			}
-        }
+			Debug.Log("Damage Done :" + damage);
+
+		}
 		if (collision.gameObject.CompareTag("BDL"))
 		{
-			float baseDamage = 20f; // Set the base damage of the object
-			float maxDistance = 10f;
-			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
+			
 			var BDL = GameObject.FindWithTag("BDL");
 			counter = counter + damage;
 			healthManager0.TakeDamage(damage);
@@ -185,12 +183,12 @@ public class Asteroid : MonoBehaviour
 				//Destroy(BDL);
 				BDL.SetActive(false);
 			}
+			Debug.Log("Damage Done :" + damage);
+
 		}
 		if (collision.gameObject.CompareTag("RDR"))
 		{
-			float baseDamage = 20f; // Set the base damage of the object
-			float maxDistance = 10f;
-			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
+			
 			var RDR = GameObject.FindWithTag("RDR");
 			counter2 = counter2 + damage;
 			healthManager1.TakeDamage(damage);
@@ -205,12 +203,12 @@ public class Asteroid : MonoBehaviour
 				//Destroy(RDR);
 				RDR.SetActive(false);
 			}
+			Debug.Log("Damage Done :" + damage);
+
 		}
 		if (collision.gameObject.CompareTag("RDL"))
 		{
-			float baseDamage = 20f; // Set the base damage of the object
-			float maxDistance = 10f;
-			float damage = baseDamage * Mathf.Clamp(distanceTraveled / maxDistance, 0f, 1f);
+			
 			var RDL = GameObject.FindWithTag("RDL");
 			counter2 = counter2 + damage;
 
@@ -226,6 +224,8 @@ public class Asteroid : MonoBehaviour
 				//Destroy(RDL);
 				RDL.SetActive(false);
 			}
+			Debug.Log("Damage Done :" + damage);
+
 		}
 	}
 }
