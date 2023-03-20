@@ -88,11 +88,11 @@ public class BlueDino1Script : MonoBehaviour
     {
         if (moveDirection > 0 && !facingRight)
         {
-            //flipCharacter();
+            flipCharacter();
         }
         else if (moveDirection < 0 && facingRight)
         {
-            //flipCharacter();
+            flipCharacter();
         }
     }
     private void GetInputs()
