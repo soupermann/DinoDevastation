@@ -17,7 +17,7 @@ public class LastThrow : MonoBehaviour
     public float zoomSpeed = 2f;
     public float maxZoom = 5f;
     public float minZoom = 1f;
-    public float zoomAmount = 2.0f;
+    public float zoomAmount = 10.0f;
     public float zoomTime = 2.0f;
 
     private float currentZoom = 1f;
