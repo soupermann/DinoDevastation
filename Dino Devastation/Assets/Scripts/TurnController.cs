@@ -51,15 +51,9 @@ public class TurnController : MonoBehaviour
 
 
         // Set moving and asteroids to false to start the turn
-        asteroidBDL.SetActive(false);
-        asteroidBDR.SetActive(false);
-        asteroidRDR.SetActive(false);
-        asteroidRDL.SetActive(false);
+        checkActiveThrow();
 
-        asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        checkActiveMove();
 
     }
 
@@ -70,7 +64,6 @@ public class TurnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
 
         // Initialize the turn variables
         currentPlayer = 0;
@@ -100,22 +93,19 @@ public class TurnController : MonoBehaviour
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
-                
+
                 // Asteroids
 
                 // Reset asteroid
                 asteroidBDL.transform.position = originalPosBDL;
                 asteroidBDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
 
-
-                //asteroidRDR.transform.position = originalPosBDR;
                 checkActiveThrow();
-                    
+
                 BLturn = true;
                 BRturn = false;
                 RLturn = false;
                 RRturn = false;
-                //asteroid.SetActive(true);
 
                 // Moving
                 checkActiveMove();
@@ -256,7 +246,7 @@ public class TurnController : MonoBehaviour
 
     public void checkActiveThrow()
     {
-        //asteroidRDR.transform.position = originalPosBDR;
+        // Only call objects if character is active in game
         if (players[1].activeSelf)
         {
             asteroidRDR.SetActive(false);
@@ -277,6 +267,7 @@ public class TurnController : MonoBehaviour
 
     public void checkActiveMove()
     {
+        // Only call objects if character is active in game
         if (players[0].activeSelf)
         {
             asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
