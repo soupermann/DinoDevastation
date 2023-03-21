@@ -27,7 +27,8 @@ public class LavaBallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BDL") || collision.gameObject.CompareTag("BDR") || collision.gameObject.CompareTag("RDL") || collision.gameObject.CompareTag("RDR"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            //Destroy(collision.gameObject);
             // TODO : CALL DIE WHEN WE HAVE DYING ANNIMATION
         }
     }
