@@ -79,11 +79,24 @@ public class TurnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Make keys activate running and throwing
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            turnOnMoveRed();
+            turnOnMove();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            turnOnAsteroid();
+            turnOnAsteroidRed();
+        }
+      
         // Check if the current player's turn is over
         if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit)
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
+                
                 // Asteroids 
                 asteroidRDR.transform.position = originalPos1;
 
@@ -106,6 +119,7 @@ public class TurnController : MonoBehaviour
             }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
+               
                 // Asteroids
                 asteroidBDR.transform.position = originalPos0;
                 BLturn = false;
@@ -147,6 +161,8 @@ public class TurnController : MonoBehaviour
             }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
+
+              
                 // Asteroids
                 asteroidBDL.transform.position = originalPos;
                 asteroidRDL.SetActive(false);
