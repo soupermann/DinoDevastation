@@ -26,7 +26,7 @@ public class ThrowingScript : MonoBehaviour
 
 	bool isDragging = false;
 
-	bool hasBeenThrown = false; // Make sure it only gets thrown once
+	public bool hasBeenThrown = false; // Make sure it only gets thrown once
 
 
 	Vector2 startPoint;
