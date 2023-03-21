@@ -7,7 +7,7 @@ public class TurnController1v1 : MonoBehaviour
 {
     // Define the camera
     public Camera mainCamera;
-
+    public Text timerText;
     // Define the teams
     public GameObject[] players;
     public GameObject turnArrow;
@@ -16,9 +16,9 @@ public class TurnController1v1 : MonoBehaviour
     
     public GameObject asteroidRDR;
     
-    Vector3 originalPos;
+    Vector3 originalPosBDL;
     
-    Vector3 originalPos1;
+    Vector3 originalPosRDR;
    
 
 
@@ -30,7 +30,7 @@ public class TurnController1v1 : MonoBehaviour
     // Keep track of time
     public int currentPlayer = 0;
     public float turnStartTime = 0f;
-
+    public float timeLeft;
     public bool BLturn = false;
     public bool RRturn = false;
 
@@ -40,9 +40,9 @@ public class TurnController1v1 : MonoBehaviour
     void Awake()
     {
         // Storing original positions for respawning
-        originalPos = asteroidBDL.transform.position;
+        originalPosBDL = asteroidBDL.transform.position;
        
-        originalPos1 = asteroidRDR.transform.position;
+        originalPosRDR = asteroidRDR.transform.position;
         
 
         // Set moving and asteroids to false to start the turn
@@ -95,41 +95,35 @@ public class TurnController1v1 : MonoBehaviour
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                 
-                // Asteroids 
-                asteroidRDR.transform.position = originalPos1;
-                asteroidRDR.SetActive(false);
-                asteroidBDL.SetActive(false);
-               
+                asteroidBDL.transform.position = originalPosBDL;
+                asteroidBDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                
+                checkActiveThrow();
                 BLturn = true;
                 
                 RRturn = false;
-                //asteroid.SetActive(true);
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                checkActiveMove();
                 
 
             }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                
-                // Asteroids
-                asteroidBDL.transform.position = originalPos;
+                asteroidRDR.transform.position = originalPosRDR;
+                asteroidRDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                //asteroidBDR.transform.position = originalPosBDR;
+                checkActiveThrow();
                 BLturn = false;
                 
                 RRturn = true;
-                asteroidBDL.SetActive(false);
-
-                asteroidRDR.SetActive(false);
-              
-                //asteroid.SetActive(true);
+                
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                
+               checkActiveMove();
             }
             // Reset the turn start time
             currentPlayer++;
@@ -142,7 +136,17 @@ public class TurnController1v1 : MonoBehaviour
     }
     void FixedUpdate()
     {
+        
+        timeLeft = turnTimeLimit - (Time.time - turnStartTime);
+        timerText.text = " " + timeLeft.ToString("F2");
+        if (turnTimeLimit - (Time.time - turnStartTime) < 5) {
+            timerText.color = Color.red;
+        }
+        else {
+            timerText.color = Color.green;
+        }
         turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+
     }
 
     // Functions to select actions
@@ -180,5 +184,32 @@ public class TurnController1v1 : MonoBehaviour
             asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
    
+    }
+        public void checkActiveMove()
+    {
+        // Only call objects if character is active in game
+        if (players[0].activeSelf)
+        {
+            asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+
+        if (players[1].activeSelf)
+        {
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+    }
+        public void checkActiveThrow()
+    {
+        // Only call objects if character is active in game
+        if (players[1].activeSelf)
+        {
+            asteroidRDR.SetActive(false);
+        }
+    
+        if (players[0].activeSelf)
+        {
+            asteroidBDL.SetActive(false);
+        }
+    
     }
 }
