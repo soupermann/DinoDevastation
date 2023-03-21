@@ -13,6 +13,7 @@ public class BlueDino1Script : MonoBehaviour
     public int maxJumpCount = 1;
 
     public TurnController TurnController;
+    public TurnController1v1 TurnController1v1;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
