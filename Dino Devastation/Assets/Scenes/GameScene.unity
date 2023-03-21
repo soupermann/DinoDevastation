@@ -1151,6 +1151,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
+  TurnController1v1: {fileID: 0}
   asteroid: {fileID: 0}
 --- !u!70 &172492727
 CapsuleCollider2D:
@@ -1303,6 +1304,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
+  TurnController1v1: {fileID: 0}
   asteroid: {fileID: 1430846149}
 --- !u!70 &178012668
 CapsuleCollider2D:
@@ -2253,6 +2255,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
+  TurnController1v1: {fileID: 0}
   asteroid: {fileID: 0}
 --- !u!50 &343854877
 Rigidbody2D:
@@ -3179,6 +3182,7 @@ MonoBehaviour:
   BRturn: 0
   RLturn: 0
   RRturn: 0
+  deadNext: 0
   selectedWall: 0
   selectedRun: 0
   selectedAsteroid: 0
@@ -5352,6 +5356,7 @@ MonoBehaviour:
   checkRadius: 1
   maxJumpCount: 1
   TurnController: {fileID: 518589196}
+  TurnController1v1: {fileID: 0}
   asteroid: {fileID: 2134124748}
 --- !u!70 &1112440119
 CapsuleCollider2D:
@@ -11006,6 +11011,8 @@ GameObject:
   - component: {fileID: 1969454022}
   - component: {fileID: 1969454021}
   - component: {fileID: 1969454020}
+  - component: {fileID: 1969454024}
+  - component: {fileID: 1969454023}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -11100,6 +11107,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969454023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969454019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08cc41f4bad1438a8d7e52330a25849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1969454024
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969454019}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.22552449, y: -0.060718194}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0910488, y: 0.1985636}
+  m_EdgeRadius: 0
 --- !u!1 &1987996042
 GameObject:
   m_ObjectHideFlags: 0

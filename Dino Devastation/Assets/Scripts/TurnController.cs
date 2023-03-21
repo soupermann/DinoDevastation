@@ -40,6 +40,8 @@ public class TurnController : MonoBehaviour
     public bool RLturn = false;
     public bool RRturn = false;
 
+    public bool deadNext = false;// Keep track of dead 
+
     public bool selectedWall = false;
     public bool selectedRun = false;
     public bool selectedAsteroid = false;
@@ -88,13 +90,20 @@ public class TurnController : MonoBehaviour
             turnOnAsteroid();
             turnOnAsteroidRed();
         }
-      
+
+
+        // Move to next turn when dead.
+        if (!players[currentPlayer].activeSelf)
+        {
+            deadNext = true;
+        }
+
         // Check if the current player's turn is over
-        if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit)
+        if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit || deadNext)
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
-
+               
                 // Asteroids
 
                 // Reset asteroid
@@ -198,6 +207,8 @@ public class TurnController : MonoBehaviour
             // Reset buttons
             asteroidButton = false;
             moveButton = false;
+            deadNext = false; // Reset value
+
         }
     }
     void FixedUpdate()
@@ -210,6 +221,7 @@ public class TurnController : MonoBehaviour
         else {
             timerText.color = Color.green;
         }
+        
         // Deal with deaths, should use teammates turn as their turn.
         //if (!players[currentPlayer].activeSelf)
         //{
@@ -218,7 +230,7 @@ public class TurnController : MonoBehaviour
         //}
         //else
         //{
-            turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+        turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
         //}
 
     }
@@ -258,10 +270,12 @@ public class TurnController : MonoBehaviour
     {
         if(currentPlayer == 0)
         {
+            asteroidBDL.SetActive(false);
             asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
         if (currentPlayer == 2)
         {
+            asteroidBDR.SetActive(false);
             asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
     }
@@ -270,10 +284,12 @@ public class TurnController : MonoBehaviour
     {
         if (currentPlayer == 1)
         {
+            asteroidRDR.SetActive(false);
             asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
         if (currentPlayer == 3)
         {
+            asteroidRDL.SetActive(false);
             asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
     }
@@ -346,4 +362,6 @@ public class TurnController : MonoBehaviour
         }
         turnArrow.transform.position = new Vector3(teammate.transform.position.x, teammate.transform.position.y + 1.5f, 0f);
     }
+
+   
 }
