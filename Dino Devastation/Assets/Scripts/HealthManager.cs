@@ -19,17 +19,7 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        // TESTING EXAMPLES FOR NOW
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            TakeDamage(20);
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Heal(5);
-        }
+        
     }
 
 

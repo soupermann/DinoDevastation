@@ -12,17 +12,19 @@ public class TurnController : MonoBehaviour
     public GameObject[] players;
     public GameObject turnArrow;
     public Transform throwableObject;
-    public GameObject asteroid;
-    public GameObject asteroid0;
-    public GameObject asteroid1;
-    public GameObject asteroid2;
+    public GameObject asteroidBDL;
+    public GameObject asteroidBDR;
+    public GameObject asteroidRDR;
+    public GameObject asteroidRDL;
     Vector3 originalPos;
     Vector3 originalPos0;
     Vector3 originalPos1;
     Vector3 originalPos2;
 
-  
 
+    // Buttons clicked
+    public bool asteroidButton = false;
+    public bool moveButton = false;
 
 
     // Keep track of time
@@ -38,41 +40,40 @@ public class TurnController : MonoBehaviour
     public bool selectedRun = false;
     public bool selectedAsteroid = false;
     void Awake()
-   {
+    {
         // Storing original positions for respawning
-        originalPos = asteroid.transform.position;
-        originalPos0 = asteroid0.transform.position;
-        originalPos1 = asteroid1.transform.position;
-        originalPos2 = asteroid2.transform.position;
+        originalPos = asteroidBDL.transform.position;
+        originalPos0 = asteroidBDR.transform.position;
+        originalPos1 = asteroidRDR.transform.position;
+        originalPos2 = asteroidRDL.transform.position;
 
-        // Only settig asteroids true if its on their turn
-        asteroid.SetActive(true);
-        asteroid0.SetActive(false);
-        asteroid1.SetActive(false);
-        asteroid2.SetActive(false);
+        // Set moving and asteroids to false to start the turn
+        asteroidBDL.SetActive(false);
+        asteroidBDR.SetActive(false);
+        asteroidRDR.SetActive(false);
+        asteroidRDL.SetActive(false);
 
-        // For moving
-        asteroid.GetComponentInParent<BlueDino1Script>().enabled = true;
-        asteroid0.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroid1.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroid2.GetComponentInParent<BlueDino1Script>().enabled = false;
+        asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+        asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+        asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
 
     }
 
 
     // Define the turn time limit
     public float turnTimeLimit = 5f; // in seconds
-    
+
     // Start is called before the first frame update
     void Start()
     {
-     
-      
+
+
         // Initialize the turn variables
         currentPlayer = 0;
         turnStartTime = Time.time;
         // Set the camera to focus on the first player's sprite
-        
+
     }
 
     // Update is called once per frame
@@ -82,95 +83,144 @@ public class TurnController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) || Time.time - turnStartTime >= turnTimeLimit)
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
-               {
+            {
                 // Asteroids 
-                    asteroid1.transform.position = originalPos1;
-                    asteroid0.SetActive(false);
-                    asteroid.SetActive(false);
-                    asteroid2.SetActive(false);
-                    asteroid1.SetActive(true);
-                    BLturn = true;
-                    BRturn = false;
-                    RLturn = false;
-                    RRturn = false;
+                asteroidRDR.transform.position = originalPos1;
+
+                asteroidRDR.SetActive(false);
+                asteroidBDR.SetActive(false);
+                asteroidBDL.SetActive(false);
+                asteroidRDL.SetActive(false);
+                BLturn = true;
+                BRturn = false;
+                RLturn = false;
+                RRturn = false;
                 //asteroid.SetActive(true);
 
                 // Moving
-                asteroid.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid0.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid1.GetComponentInParent<BlueDino1Script>().enabled = true;
-                asteroid2.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
 
             }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
-                {
+            {
                 // Asteroids
-                    asteroid0.transform.position = originalPos0; 
-                    BLturn = false;
-                    BRturn = false;
-                    RLturn = false;
-                    RRturn = true;
-                    asteroid.SetActive(false);
-                    
-                    asteroid1.SetActive(false);
-                    asteroid2.SetActive(false);
-                    asteroid0.SetActive(true);
+                asteroidBDR.transform.position = originalPos0;
+                BLturn = false;
+                BRturn = false;
+                RLturn = false;
+                RRturn = true;
+                asteroidBDL.SetActive(false);
+
+                asteroidRDR.SetActive(false);
+                asteroidRDL.SetActive(false);
+                asteroidBDR.SetActive(false);
                 //asteroid.SetActive(true);
 
                 // Moving
-                asteroid.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid0.GetComponentInParent<BlueDino1Script>().enabled = true;
-                asteroid1.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid2.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
             }
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
-                {
+            {
                 // Asteroids
-                    asteroid2.transform.position = originalPos2;
-                    asteroid1.SetActive(false);
-                    asteroid0.SetActive(false);
-                    asteroid.SetActive(false);
-                    asteroid2.SetActive(true);
-                    BLturn = false;
-                    BRturn = true;
-                    RLturn = false;
-                    RRturn = false;
+                asteroidRDL.transform.position = originalPos2;
+                asteroidRDR.SetActive(false);
+                asteroidBDR.SetActive(false);
+                asteroidBDL.SetActive(false);
+                asteroidRDL.SetActive(false);
+                BLturn = false;
+                BRturn = true;
+                RLturn = false;
+                RRturn = false;
                 //asteroid2.SetActive(true);
 
                 // Moving
-                asteroid.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid0.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid1.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid2.GetComponentInParent<BlueDino1Script>().enabled = true;
+                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
             }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
-                {
+            {
                 // Asteroids
-                    asteroid.transform.position = originalPos;
-                    asteroid2.SetActive(false);
-                    asteroid1.SetActive(false);
-                    asteroid0.SetActive(false);
-                    asteroid.SetActive(true);
-                    BLturn = false;
-                    BRturn = false;
-                    RLturn = true;
-                    RRturn = false;
+                asteroidBDL.transform.position = originalPos;
+                asteroidRDL.SetActive(false);
+                asteroidRDR.SetActive(false);
+                asteroidBDR.SetActive(false);
+                asteroidBDL.SetActive(false);
+                BLturn = false;
+                BRturn = false;
+                RLturn = true;
+                RRturn = false;
                 //asteroid1.SetActive(true);
 
                 // Moving
-                asteroid.GetComponentInParent<BlueDino1Script>().enabled = true;
-                asteroid0.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid1.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroid2.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
             }
 
             // Reset the turn start time
             currentPlayer++;
-            if (currentPlayer == 4) {currentPlayer = 0;}
+            if (currentPlayer == 4) { currentPlayer = 0; }
             turnStartTime = Time.time;
+            // Reset buttons
+            asteroidButton = false;
+            moveButton = false;
         }
     }
-    void FixedUpdate() {
-        turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f,0f);
+    void FixedUpdate()
+    {
+        turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+    }
+
+    // Functions to select actions
+    public void turnOnAsteroid()
+    {
+        asteroidButton = true;
+        if(currentPlayer == 0)
+        {
+            asteroidBDL.SetActive(true);
+        }
+        if (currentPlayer == 1)
+        {
+            asteroidRDR.SetActive(true);
+        }
+        if (currentPlayer == 2)
+        {
+            asteroidBDR.SetActive(true);
+        }
+        if (currentPlayer == 3)
+        {
+            asteroidRDL.SetActive(true);
+        }
+    }
+
+    public void turnOnMove()
+    {
+        moveButton = true;
+        Debug.Log("Move Button Clicked!");
+        if(currentPlayer == 0)
+        {
+            asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = true;
+        }
+        if (currentPlayer == 1)
+        {
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = true;
+        }
+        if (currentPlayer == 2)
+        {
+            asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = true;
+        }
+        if (currentPlayer == 3)
+        {
+            asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = true;
+        }
     }
 }
