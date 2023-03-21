@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1v1GameScene.unity
     guid: 949339cb980858b4bbee0f0d0282ea25
+  - enabled: 1
+    path: Assets/Scenes/HardCore1v1GameScene.unity
+    guid: 74e92d793bb28384cba90f298cae90d4
   m_configObjects: {}

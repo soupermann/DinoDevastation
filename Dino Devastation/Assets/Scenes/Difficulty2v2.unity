@@ -591,7 +591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hardcore
+  m_Text: Hardcore (Coming soon!)
 --- !u!222 &1326705234
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -637,8 +637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: 0, y: -160.71107}
+  m_SizeDelta: {x: 400, y: 113.578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539628761
 MonoBehaviour:
@@ -683,19 +683,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1539628762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1956082592}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Hardcore2v2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1539628762
 MonoBehaviour:
   m_ObjectHideFlags: 0

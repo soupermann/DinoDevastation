@@ -1622,6 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1097977796}
+  timerText: {fileID: 569870272}
   players:
   - {fileID: 343854874}
   - {fileID: 1112440117}
@@ -1633,6 +1634,7 @@ MonoBehaviour:
   moveButton: 0
   currentPlayer: 0
   turnStartTime: 0
+  timeLeft: 0
   BLturn: 0
   RRturn: 0
   selectedWall: 0

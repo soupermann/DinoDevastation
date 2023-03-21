@@ -24,7 +24,7 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("1v1GameScene", LoadSceneMode.Single);
     }
     public void Hardcore1v1() {
-        SceneManager.LoadScene("HardCoreNew1v1", LoadSceneMode.Single);
+        SceneManager.LoadScene("HardCore1v1GameScene", LoadSceneMode.Single);
     }
     public void Exit() {
         Application.Quit();
