@@ -522,6 +522,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!114 &112229779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,6 +2612,7 @@ MonoBehaviour:
   ball: {fileID: 407585509}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!1 &414533430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3170,7 @@ MonoBehaviour:
   asteroidRDL: {fileID: 1430846147}
   asteroidButton: 0
   moveButton: 0
+  respawnForce: 10
   currentPlayer: 0
   turnStartTime: 3
   BLturn: 1
@@ -5896,6 +5899,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!1 &1199924966
 GameObject:
   m_ObjectHideFlags: 0
@@ -6656,6 +6660,7 @@ MonoBehaviour:
   ball: {fileID: 407585509}
   trajectory: {fileID: 1925955175}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!4 &1282525972
 Transform:
   m_ObjectHideFlags: 0
@@ -7252,8 +7257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
-  mainCamera: {fileID: 1097977796}
-  secondCamera: {fileID: 1680210220}
+  mainCamera: {fileID: 0}
+  secondCamera: {fileID: 0}
   respawnOnlyWhenThrown: 1
   healthManager: {fileID: 143187119}
   healthManager0: {fileID: 1445486147}
@@ -7366,6 +7371,7 @@ MonoBehaviour:
   ball: {fileID: 1430846149}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!1 &1445486146
 GameObject:
   m_ObjectHideFlags: 0
@@ -8224,6 +8230,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!4 &1577579678
 Transform:
   m_ObjectHideFlags: 0
@@ -8271,6 +8278,7 @@ MonoBehaviour:
   ball: {fileID: 2134124748}
   trajectory: {fileID: 1498498555}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!4 &1593683182
 Transform:
   m_ObjectHideFlags: 0
@@ -9385,6 +9393,7 @@ MonoBehaviour:
   ball: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!114 &1792686322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9511,6 +9520,7 @@ MonoBehaviour:
   ball: {fileID: 1430846149}
   trajectory: {fileID: 108075864}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!4 &1809729075
 Transform:
   m_ObjectHideFlags: 0
@@ -11682,6 +11692,7 @@ MonoBehaviour:
   ball: {fileID: 2134124748}
   trajectory: {fileID: 425227239}
   pushForce: 4
+  hasBeenThrown: 0
 --- !u!1 &2139053930
 GameObject:
   m_ObjectHideFlags: 0
