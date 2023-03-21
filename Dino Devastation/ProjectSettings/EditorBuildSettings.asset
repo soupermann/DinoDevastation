@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b7c85edb72028487ab1d5fb473f2fc86
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene1v1.unity
     guid: 3d0ef09dbf636e04b91c749cf9f8a358
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene1v1Hardcore.unity
     guid: ee651c0d83b87b5428e41874f6b8b727
   - enabled: 1
@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scoresheet.unity
     guid: 3fc400dc6c315384fb9120d24d900aa2
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: a4bbb3db17e2747f893c6ade677059bd
   m_configObjects: {}

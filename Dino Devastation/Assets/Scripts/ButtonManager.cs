@@ -32,6 +32,8 @@ public class ButtonManager : MonoBehaviour
     public void Exit2Menu() {
         SceneManager.LoadScene("Initial Scene", LoadSceneMode.Single);
     }
-
+    public void instructionsMenu() {
+        SceneManager.LoadScene("Instructions", LoadSceneMode.Single);
+    }
 
 }

@@ -7,6 +7,7 @@ public class TurnController : MonoBehaviour
 {
     // Define the camera
     public Camera mainCamera;
+    public Text timerText;
 
     // Define the teams
     public GameObject[] players;
@@ -26,10 +27,13 @@ public class TurnController : MonoBehaviour
     public bool asteroidButton = false;
     public bool moveButton = false;
 
+    // Respawn force
+    public float respawnForce = 10f;
 
     // Keep track of time
     public int currentPlayer = 0;
     public float turnStartTime = 0f;
+    public float timeLeft;
 
     public bool BLturn = false;
     public bool BRturn = false;
@@ -49,15 +53,9 @@ public class TurnController : MonoBehaviour
 
 
         // Set moving and asteroids to false to start the turn
-        asteroidBDL.SetActive(false);
-        asteroidBDR.SetActive(false);
-        asteroidRDR.SetActive(false);
-        asteroidRDL.SetActive(false);
+        checkActiveThrow();
 
-        asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-        asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        checkActiveMove();
 
     }
 
@@ -68,7 +66,6 @@ public class TurnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
 
         // Initialize the turn variables
         currentPlayer = 0;
@@ -98,31 +95,22 @@ public class TurnController : MonoBehaviour
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
-                
+
                 // Asteroids
 
                 // Reset asteroid
                 asteroidBDL.transform.position = originalPosBDL;
                 asteroidBDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
 
-                //asteroidRDR.transform.position = originalPosBDR;
+                checkActiveThrow();
 
-                asteroidRDR.SetActive(false);
-                asteroidBDR.SetActive(false);
-                asteroidBDL.SetActive(false);
-                asteroidRDL.SetActive(false);
                 BLturn = true;
                 BRturn = false;
                 RLturn = false;
                 RRturn = false;
-                //asteroid.SetActive(true);
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-
+                checkActiveMove();
             }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
@@ -139,18 +127,11 @@ public class TurnController : MonoBehaviour
                 BRturn = false;
                 RLturn = false;
                 RRturn = true;
-                asteroidBDL.SetActive(false);
-
-                asteroidRDR.SetActive(false);
-                asteroidRDL.SetActive(false);
-                asteroidBDR.SetActive(false);
-                //asteroid.SetActive(true);
+                checkActiveThrow();
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                checkActiveMove();
+
             }
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
@@ -161,10 +142,8 @@ public class TurnController : MonoBehaviour
                 asteroidBDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
 
                 //asteroidRDL.transform.position = originalPosRDL;
-                asteroidRDR.SetActive(false);
-                asteroidBDR.SetActive(false);
-                asteroidBDL.SetActive(false);
-                asteroidRDL.SetActive(false);
+                checkActiveThrow();
+
                 BLturn = false;
                 BRturn = true;
                 RLturn = false;
@@ -172,10 +151,8 @@ public class TurnController : MonoBehaviour
                 //asteroid2.SetActive(true);
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                checkActiveMove();
+
             }
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
@@ -188,10 +165,8 @@ public class TurnController : MonoBehaviour
                 asteroidRDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
 
                 //asteroidBDL.transform.position = originalPosBDL;
-                asteroidRDL.SetActive(false);
-                asteroidRDR.SetActive(false);
-                asteroidBDR.SetActive(false);
-                asteroidBDL.SetActive(false);
+                checkActiveThrow();
+
                 BLturn = false;
                 BRturn = false;
                 RLturn = true;
@@ -199,10 +174,8 @@ public class TurnController : MonoBehaviour
                 //asteroid1.SetActive(true);
 
                 // Moving
-                asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
-                asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+                checkActiveMove();
+
             }
 
             // Reset the turn start time
@@ -216,7 +189,24 @@ public class TurnController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+        timeLeft = turnTimeLimit - (Time.time - turnStartTime);
+        timerText.text = " " + timeLeft.ToString("F2");
+        if (turnTimeLimit - (Time.time - turnStartTime) < 5) {
+            timerText.color = Color.red;
+        }
+        else {
+            timerText.color = Color.green;
+        }
+        // Deal with deaths, should use teammates turn as their turn.
+        if (!players[currentPlayer].activeSelf)
+        {
+            teammateSwitch(players[currentPlayer]);
+        }
+        else
+        {
+            turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+        }
+
     }
 
     // Functions to select actions
@@ -225,10 +215,12 @@ public class TurnController : MonoBehaviour
         if(currentPlayer == 0)
         {
             asteroidBDL.SetActive(true);
+            asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
         if (currentPlayer == 2)
         {
             asteroidBDR.SetActive(true);
+            asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
     }
 
@@ -237,10 +229,12 @@ public class TurnController : MonoBehaviour
         if (currentPlayer == 1)
         {
             asteroidRDR.SetActive(true);
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
         if (currentPlayer == 3)
         {
             asteroidRDL.SetActive(true);
+            asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
     }
 
@@ -266,5 +260,73 @@ public class TurnController : MonoBehaviour
         {
             asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
+    }
+
+    public void checkActiveThrow()
+    {
+        // Only call objects if character is active in game
+        if (players[1].activeSelf)
+        {
+            asteroidRDR.SetActive(false);
+        }
+        if (players[2].activeSelf)
+        {
+            asteroidBDR.SetActive(false);
+        }
+        if (players[0].activeSelf)
+        {
+            asteroidBDL.SetActive(false);
+        }
+        if (players[3].activeSelf)
+        {
+            asteroidRDL.SetActive(false);
+        }
+    }
+
+    public void checkActiveMove()
+    {
+        // Only call objects if character is active in game
+        if (players[0].activeSelf)
+        {
+            asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+        if (players[2].activeSelf)
+        {
+            asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+        if (players[1].activeSelf)
+        {
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+        if (players[3].activeSelf)
+        {
+            asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
+        }
+
+    }
+
+    public void teammateSwitch(GameObject teammate)
+    {
+        if (players[currentPlayer] == players[0])
+        {
+            currentPlayer = 2;
+            teammate = players[2];
+        }
+        if (players[currentPlayer] == players[1])
+        {
+            currentPlayer = 3;
+            teammate = players[3];
+        }
+        if (players[currentPlayer] == players[2])
+        {
+            currentPlayer = 0;
+            teammate = players[0];
+        }
+        if (players[currentPlayer] == players[3])
+        {
+            currentPlayer = 1;
+            teammate = players[1];
+        }
+        turnArrow.transform.position = new Vector3(teammate.transform.position.x, teammate.transform.position.y + 1.5f, 0f);
     }
 }
