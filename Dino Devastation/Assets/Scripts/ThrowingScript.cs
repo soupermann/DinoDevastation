@@ -108,6 +108,8 @@ public class ThrowingScript : MonoBehaviour
 		trajectory.Hide();
 
 		hasBeenThrown = true;
+
+		ball.GetComponent<Rigidbody2D>().gravityScale = 1f;
 	}
 
 }
