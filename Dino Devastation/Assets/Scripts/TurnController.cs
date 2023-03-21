@@ -7,6 +7,7 @@ public class TurnController : MonoBehaviour
 {
     // Define the camera
     public Camera mainCamera;
+    public Text timerText;
 
     // Define the teams
     public GameObject[] players;
@@ -32,6 +33,7 @@ public class TurnController : MonoBehaviour
     // Keep track of time
     public int currentPlayer = 0;
     public float turnStartTime = 0f;
+    public float timeLeft;
 
     public bool BLturn = false;
     public bool BRturn = false;
@@ -187,7 +189,14 @@ public class TurnController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+        timeLeft = turnTimeLimit - (Time.time - turnStartTime);
+        timerText.text = " " + timeLeft.ToString("F2");
+        if (turnTimeLimit - (Time.time - turnStartTime) < 5) {
+            timerText.color = Color.red;
+        }
+        else {
+            timerText.color = Color.green;
+        }
         turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
     }
 
