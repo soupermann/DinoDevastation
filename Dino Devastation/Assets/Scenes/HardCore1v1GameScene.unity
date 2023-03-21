@@ -1640,7 +1640,7 @@ MonoBehaviour:
   selectedWall: 0
   selectedRun: 0
   selectedAsteroid: 0
-  turnTimeLimit: 5
+  turnTimeLimit: 10
 --- !u!4 &228193378
 Transform:
   m_ObjectHideFlags: 0
