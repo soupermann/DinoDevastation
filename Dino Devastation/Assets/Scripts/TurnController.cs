@@ -183,18 +183,21 @@ public class TurnController : MonoBehaviour
     // Functions to select actions
     public void turnOnAsteroid()
     {
-        asteroidButton = true;
         if(currentPlayer == 0)
         {
             asteroidBDL.SetActive(true);
         }
-        if (currentPlayer == 1)
-        {
-            asteroidRDR.SetActive(true);
-        }
         if (currentPlayer == 2)
         {
             asteroidBDR.SetActive(true);
+        }
+    }
+
+    public void turnOnAsteroidRed()
+    {
+        if (currentPlayer == 1)
+        {
+            asteroidRDR.SetActive(true);
         }
         if (currentPlayer == 3)
         {
@@ -204,19 +207,21 @@ public class TurnController : MonoBehaviour
 
     public void turnOnMove()
     {
-        moveButton = true;
-        Debug.Log("Move Button Clicked!");
         if(currentPlayer == 0)
         {
             asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
-        if (currentPlayer == 1)
-        {
-            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = true;
-        }
         if (currentPlayer == 2)
         {
             asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = true;
+        }
+    }
+
+    public void turnOnMoveRed()
+    {
+        if (currentPlayer == 1)
+        {
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = true;
         }
         if (currentPlayer == 3)
         {

@@ -23,7 +23,7 @@ public class Asteroid : MonoBehaviour
 	public HealthManager healthManager2;
 	private Vector2 initialPosition;
 
-	private float damage = 10f;
+	private float damage = 15f;
 	
 	void Awake()
 	{
