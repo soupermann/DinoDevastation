@@ -20,7 +20,7 @@ public class StartController : MonoBehaviour
     void Update()
     {
         if (StartingSpeech.GetComponent<RectTransform>().anchoredPosition.y < 3000) {
-            StartingSpeech.GetComponent<RectTransform>().anchoredPosition += new Vector2(0f, 0.5f + Time.deltaTime);
+            StartingSpeech.GetComponent<RectTransform>().anchoredPosition += new Vector2(0f, 0.15f);
         }
         if (StartingSpeech.GetComponent<RectTransform>().anchoredPosition.y > 3000) {
             ButtonManager.changeScene();

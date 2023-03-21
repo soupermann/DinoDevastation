@@ -26,8 +26,6 @@ public class BlueDino1Script : MonoBehaviour
     // Item Manager code
     
 
-    private int wallHealth = 50;
-    private int wallAmount = 1;
 
     //private bool placeWall() {
     //    if (TurnController.BLturn && wallAmount > 0) {
