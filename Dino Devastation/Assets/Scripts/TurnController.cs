@@ -16,10 +16,10 @@ public class TurnController : MonoBehaviour
     public GameObject asteroidBDR;
     public GameObject asteroidRDR;
     public GameObject asteroidRDL;
-    Vector3 originalPos;
-    Vector3 originalPos0;
-    Vector3 originalPos1;
-    Vector3 originalPos2;
+    Vector3 originalPosBDL;
+    Vector3 originalPosBDR;
+    Vector3 originalPosRDR;
+    Vector3 originalPosRDL;
 
 
     // Buttons clicked
@@ -42,10 +42,11 @@ public class TurnController : MonoBehaviour
     void Awake()
     {
         // Storing original positions for respawning
-        originalPos = asteroidBDL.transform.position;
-        originalPos0 = asteroidBDR.transform.position;
-        originalPos1 = asteroidRDR.transform.position;
-        originalPos2 = asteroidRDL.transform.position;
+        originalPosBDL = asteroidBDL.transform.position;
+        originalPosBDR = asteroidBDR.transform.position;
+        originalPosRDR = asteroidRDR.transform.position;
+        originalPosRDL = asteroidRDL.transform.position;
+
 
         // Set moving and asteroids to false to start the turn
         asteroidBDL.SetActive(false);
@@ -79,6 +80,7 @@ public class TurnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Make keys activate running and throwing
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -97,8 +99,13 @@ public class TurnController : MonoBehaviour
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                 
-                // Asteroids 
-                asteroidRDR.transform.position = originalPos1;
+                // Asteroids
+
+                // Reset asteroid
+                asteroidBDL.transform.position = originalPosBDL;
+                asteroidBDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                //asteroidRDR.transform.position = originalPosBDR;
 
                 asteroidRDR.SetActive(false);
                 asteroidBDR.SetActive(false);
@@ -119,9 +126,15 @@ public class TurnController : MonoBehaviour
             }
             else if (currentPlayer == 1 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
-               
+
                 // Asteroids
-                asteroidBDR.transform.position = originalPos0;
+
+                // Reset asteroid
+                asteroidRDR.transform.position = originalPosRDR;
+                asteroidRDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                //asteroidBDR.transform.position = originalPosBDR;
+
                 BLturn = false;
                 BRturn = false;
                 RLturn = false;
@@ -142,7 +155,12 @@ public class TurnController : MonoBehaviour
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                 // Asteroids
-                asteroidRDL.transform.position = originalPos2;
+
+                // Reset asteroid
+                asteroidBDR.transform.position = originalPosBDR;
+                asteroidBDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                //asteroidRDL.transform.position = originalPosRDL;
                 asteroidRDR.SetActive(false);
                 asteroidBDR.SetActive(false);
                 asteroidBDL.SetActive(false);
@@ -162,9 +180,14 @@ public class TurnController : MonoBehaviour
             else if (currentPlayer == 3 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
 
-              
+
                 // Asteroids
-                asteroidBDL.transform.position = originalPos;
+
+                // Reset asteroid
+                asteroidRDL.transform.position = originalPosRDL;
+                asteroidRDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
+
+                //asteroidBDL.transform.position = originalPosBDL;
                 asteroidRDL.SetActive(false);
                 asteroidRDR.SetActive(false);
                 asteroidBDR.SetActive(false);
