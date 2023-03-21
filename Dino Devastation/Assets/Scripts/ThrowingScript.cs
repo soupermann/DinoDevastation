@@ -26,7 +26,7 @@ public class ThrowingScript : MonoBehaviour
 
 	bool isDragging = false;
 
-	public bool isThrow = false; // Only display when someone is throwing an asteroid
+	bool hasBeenThrown = false; // Make sure it only gets thrown once
 
 
 	Vector2 startPoint;
@@ -55,20 +55,23 @@ public class ThrowingScript : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (!hasBeenThrown) // only allow dragging if the asteroid hasn't been thrown yet
 		{
-			isDragging = true;
-			OnDragStart();
-		}
-		if (Input.GetMouseButtonUp(0))
-		{
-			isDragging = false;
-			OnDragEnd();
-		}
+			if (Input.GetMouseButtonDown(0))
+			{
+				isDragging = true;
+				OnDragStart();
+			}
+			if (Input.GetMouseButtonUp(0))
+			{
+				isDragging = false;
+				OnDragEnd();
+			}
 
-		if (isDragging)
-		{
-			OnDrag();
+			if (isDragging)
+			{
+				OnDrag();
+			}
 		}
 	}
 
@@ -103,6 +106,8 @@ public class ThrowingScript : MonoBehaviour
 		ball.Push(force);
 
 		trajectory.Hide();
+
+		hasBeenThrown = true;
 	}
 
 }
