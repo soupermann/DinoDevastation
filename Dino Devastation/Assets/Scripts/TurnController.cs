@@ -197,6 +197,7 @@ public class TurnController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        
         turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
     }
 
@@ -206,10 +207,12 @@ public class TurnController : MonoBehaviour
         if(currentPlayer == 0)
         {
             asteroidBDL.SetActive(true);
+            asteroidBDL.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
         if (currentPlayer == 2)
         {
             asteroidBDR.SetActive(true);
+            asteroidBDR.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
     }
 
@@ -218,10 +221,12 @@ public class TurnController : MonoBehaviour
         if (currentPlayer == 1)
         {
             asteroidRDR.SetActive(true);
+            asteroidRDR.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
         if (currentPlayer == 3)
         {
             asteroidRDL.SetActive(true);
+            asteroidRDL.GetComponentInParent<BlueDino1Script>().enabled = false;
         }
     }
 
