@@ -197,7 +197,16 @@ public class TurnController : MonoBehaviour
         else {
             timerText.color = Color.green;
         }
-        turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+        // Deal with deaths, should use teammates turn as their turn.
+        if (!players[currentPlayer].activeSelf)
+        {
+            teammateSwitch(players[currentPlayer]);
+        }
+        else
+        {
+            turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
+        }
+
     }
 
     // Functions to select actions
@@ -296,4 +305,28 @@ public class TurnController : MonoBehaviour
 
     }
 
+    public void teammateSwitch(GameObject teammate)
+    {
+        if (players[currentPlayer] == players[0])
+        {
+            currentPlayer = 2;
+            teammate = players[2];
+        }
+        if (players[currentPlayer] == players[1])
+        {
+            currentPlayer = 3;
+            teammate = players[3];
+        }
+        if (players[currentPlayer] == players[2])
+        {
+            currentPlayer = 0;
+            teammate = players[0];
+        }
+        if (players[currentPlayer] == players[3])
+        {
+            currentPlayer = 1;
+            teammate = players[1];
+        }
+        turnArrow.transform.position = new Vector3(teammate.transform.position.x, teammate.transform.position.y + 1.5f, 0f);
+    }
 }
