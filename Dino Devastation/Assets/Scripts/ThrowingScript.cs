@@ -35,18 +35,6 @@ public class ThrowingScript : MonoBehaviour
 	Vector2 force;
 	float distance;
 
-
-
-	//---------------------------------------
-	//public void ThrowAsteroid()
- //   {
-	//	// Used for onclick call to throw asteroid.
-	//	Start();
-	//	Update();
-	//	OnDragStart();
-	//	OnDrag();
-	//	OnDragEnd();
- //   }
 	void Start()
 	{
 		cam = Camera.main;
