@@ -20,7 +20,7 @@ public class ThrowingScript : MonoBehaviour
 
 	Camera cam;
 
-	public Asteroid ball;
+	public Asteroid asteroid;
 	public Trajectory trajectory;
 	[SerializeField] float pushForce = 4f;
 
@@ -50,7 +50,7 @@ public class ThrowingScript : MonoBehaviour
 	void Start()
 	{
 		cam = Camera.main;
-		ball.DesactivateRb();
+		asteroid.DesactivateRb();
 	}
 
 	void Update()
@@ -78,7 +78,7 @@ public class ThrowingScript : MonoBehaviour
 	//-Drag--------------------------------------
 	void OnDragStart()
 	{
-		ball.DesactivateRb();
+		asteroid.DesactivateRb();
 		startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
 
 		trajectory.Show();
@@ -95,21 +95,21 @@ public class ThrowingScript : MonoBehaviour
 		Debug.DrawLine(startPoint, endPoint);
 
 
-		trajectory.UpdateDots(ball.pos, force);
+		trajectory.UpdateDots(asteroid.pos, force);
 	}
 
 	void OnDragEnd()
 	{
 		//push the ball
-		ball.ActivateRb();
+		asteroid.ActivateRb();
 
-		ball.Push(force);
+		asteroid.Push(force);
 
 		trajectory.Hide();
 
 		hasBeenThrown = true;
 
-		ball.GetComponent<Rigidbody2D>().gravityScale = 1f;
+		asteroid.GetComponent<Rigidbody2D>().gravityScale = 1f;
 	}
 
 }

@@ -101,7 +101,7 @@ public class TurnController : MonoBehaviour
             {
 
                 // Reset asteroid
-                resetAsteroid(asteroidBDL);
+                resetAsteroid(asteroidBDL,originalPosBDL);
 
                 checkActiveThrow();
 
@@ -118,7 +118,7 @@ public class TurnController : MonoBehaviour
             {
 
                 // Asteroids
-                resetAsteroid(asteroidRDR);
+                resetAsteroid(asteroidRDR,originalPosRDR);
                 checkActiveThrow();
 
                 // Turn setter
@@ -134,7 +134,7 @@ public class TurnController : MonoBehaviour
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                 // Asteroids
-                resetAsteroid(asteroidBDR);
+                resetAsteroid(asteroidBDR,originalPosBDR);
 
                 checkActiveThrow();
 
@@ -153,7 +153,7 @@ public class TurnController : MonoBehaviour
 
 
                 // Asteroids
-                resetAsteroid(asteroidRDL);
+                resetAsteroid(asteroidRDL,originalPosRDL);
 
                 checkActiveThrow();
 
@@ -298,10 +298,10 @@ public class TurnController : MonoBehaviour
 
     }
 
-    public void resetAsteroid(GameObject asteroid)
+    public void resetAsteroid(GameObject asteroid,Vector3 position)
     {
         // Reset asteroid
-        asteroid.transform.position = originalPosBDL;
+        asteroid.transform.position = position;
         // Making the asteroid not fall
         asteroid.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         asteroid.GetComponent<Rigidbody2D>().angularVelocity = 0f;
