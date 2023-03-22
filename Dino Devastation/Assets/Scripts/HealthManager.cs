@@ -8,27 +8,14 @@ public class HealthManager : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 100f;
 
-   // public Asteroid asteroid;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    // Function to damage character
     public void TakeDamage(float damage)
     {
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
     }
 
+    // Function to heal character
     public void Heal(float healingAmount)
     {
         healthAmount += healingAmount;

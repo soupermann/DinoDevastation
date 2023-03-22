@@ -24,19 +24,8 @@ public class BlueDino1Script : MonoBehaviour
 
     public Asteroid asteroid;
 
-    // Item Manager code
-    
 
-
-    //private bool placeWall() {
-    //    if (TurnController.BLturn && wallAmount > 0) {
-
-    //    }
-    //} 
-
-
-
-    // Awak is called agter all objects are initialized
+    // Awake is called agter all objects are initialized
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); // Will look for a compenent on this GameObject (what the script is attached to) of type RigiBody2D
@@ -72,6 +61,7 @@ public class BlueDino1Script : MonoBehaviour
         // Move
         Move();
     }
+    // Moving function
     private void Move()
     {
         // Move
@@ -83,6 +73,7 @@ public class BlueDino1Script : MonoBehaviour
         }
         isJumping = false;
     }
+    // Flips character depending on which way they are running
     private void Animate()
     {
         if (moveDirection > 0 && !facingRight)
@@ -94,6 +85,7 @@ public class BlueDino1Script : MonoBehaviour
             flipCharacter();
         }
     }
+    // Gets inputs from user to move character
     private void GetInputs()
     {
         // Get inputs
@@ -103,7 +95,6 @@ public class BlueDino1Script : MonoBehaviour
             isJumping = true;
         }
     }
-
 
     private void flipCharacter()
     {

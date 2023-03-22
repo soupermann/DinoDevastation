@@ -53,7 +53,6 @@ public class TurnController : MonoBehaviour
         originalPosRDR = asteroidRDR.transform.position;
         originalPosRDL = asteroidRDL.transform.position;
 
-
         // Set moving and asteroids to false to start the turn
         checkActiveThrow();
 
@@ -72,13 +71,11 @@ public class TurnController : MonoBehaviour
         currentPlayer = 0;
         turnStartTime = Time.time;
         // Set the camera to focus on the first player's sprite
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // Make keys activate running and throwing
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -91,8 +88,7 @@ public class TurnController : MonoBehaviour
             turnOnAsteroidRed();
         }
 
-
-        // Move to next turn when dead.
+        // Move to next turn when dead. 
         if (!players[currentPlayer].activeSelf)
         {
             deadNext = true;
@@ -103,21 +99,13 @@ public class TurnController : MonoBehaviour
         {
             if (currentPlayer == 0 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
-               
-                // Asteroids
 
                 // Reset asteroid
-                asteroidBDL.transform.position = originalPosBDL;
-                // Making the asteroid not fall
-                asteroidBDL.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                asteroidBDL.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                asteroidBDL.GetComponent<Rigidbody2D>().gravityScale = 0f;
-
-                asteroidBDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
-
+                resetAsteroid(asteroidBDL);
 
                 checkActiveThrow();
 
+                // Turn setter
                 BLturn = true;
                 BRturn = false;
                 RLturn = false;
@@ -130,21 +118,14 @@ public class TurnController : MonoBehaviour
             {
 
                 // Asteroids
+                resetAsteroid(asteroidRDR);
+                checkActiveThrow();
 
-                // Reset asteroid
-                asteroidRDR.transform.position = originalPosRDR;
-                // Making the asteroid not fall
-                asteroidRDR.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                asteroidRDR.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                asteroidRDR.GetComponent<Rigidbody2D>().gravityScale = 0f;
-
-                asteroidRDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
-
+                // Turn setter
                 BLturn = false;
                 BRturn = false;
                 RLturn = false;
                 RRturn = true;
-                checkActiveThrow();
 
                 // Moving
                 checkActiveMove();
@@ -153,17 +134,11 @@ public class TurnController : MonoBehaviour
             else if (currentPlayer == 2 && players[currentPlayer].activeInHierarchy && players[currentPlayer] != null && players[currentPlayer].activeSelf)
             {
                 // Asteroids
-
-                // Reset asteroid
-                asteroidBDR.transform.position = originalPosBDR;
-                asteroidBDR.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
-                // Making the asteroid not fall
-                asteroidBDR.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                asteroidBDR.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                asteroidBDR.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                resetAsteroid(asteroidBDR);
 
                 checkActiveThrow();
 
+                // Turn setter
                 BLturn = false;
                 BRturn = true;
                 RLturn = false;
@@ -178,17 +153,11 @@ public class TurnController : MonoBehaviour
 
 
                 // Asteroids
-
-                // Reset asteroid
-                asteroidRDL.transform.position = originalPosRDL;
-                asteroidRDL.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
-                // Making the asteroid not fall
-                asteroidRDL.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                asteroidRDL.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-                asteroidRDL.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                resetAsteroid(asteroidRDL);
 
                 checkActiveThrow();
 
+                // Turn setter
                 BLturn = false;
                 BRturn = false;
                 RLturn = true;
@@ -208,11 +177,11 @@ public class TurnController : MonoBehaviour
             asteroidButton = false;
             moveButton = false;
             deadNext = false; // Reset value
-
         }
     }
     void FixedUpdate()
     {
+        // Timer
         timeLeft = turnTimeLimit - (Time.time - turnStartTime);
         timerText.text = " " + timeLeft.ToString("F2");
         if (turnTimeLimit - (Time.time - turnStartTime) < 5) {
@@ -221,17 +190,9 @@ public class TurnController : MonoBehaviour
         else {
             timerText.color = Color.green;
         }
-        
-        // Deal with deaths, should use teammates turn as their turn.
-        //if (!players[currentPlayer].activeSelf)
-        //{
-        //    teammateSwitch(players[currentPlayer]);
-        //    Debug.Log("GOT IN");
-        //}
-        //else
-        //{
+
+        // Green arrow for players turn
         turnArrow.transform.position = new Vector3(players[currentPlayer].transform.position.x, players[currentPlayer].transform.position.y + 1.5f, 0f);
-        //}
 
     }
 
@@ -337,31 +298,16 @@ public class TurnController : MonoBehaviour
 
     }
 
-    public void teammateSwitch(GameObject teammate)
+    public void resetAsteroid(GameObject asteroid)
     {
-        if (players[currentPlayer] == players[0])
-        {
-            currentPlayer = 1;
-            teammate = players[2];
-            Debug.Log("GO IN HERE TOO");
-        }
-        if (players[currentPlayer] == players[1])
-        {
-            currentPlayer = 3;
-            teammate = players[3];
-        }
-        if (players[currentPlayer] == players[2])
-        {
-            currentPlayer = 0;
-            teammate = players[0];
-        }
-        if (players[currentPlayer] == players[3])
-        {
-            currentPlayer = 1;
-            teammate = players[1];
-        }
-        turnArrow.transform.position = new Vector3(teammate.transform.position.x, teammate.transform.position.y + 1.5f, 0f);
+        // Reset asteroid
+        asteroid.transform.position = originalPosBDL;
+        // Making the asteroid not fall
+        asteroid.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        asteroid.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        asteroid.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        asteroid.GetComponent<ThrowingScript>().hasBeenThrown = false; // Reset the has been thrown bool to make it able to be thrown again.
     }
 
-   
+
 }

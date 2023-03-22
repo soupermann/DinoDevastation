@@ -17,7 +17,6 @@ public class Trajectory : MonoBehaviour
 	//dot pos
 	float timeStamp;
 
-	//--------------------------------
 	void Start()
 	{
 		//hide trajectory in the start
@@ -26,6 +25,7 @@ public class Trajectory : MonoBehaviour
 		PrepareDots();
 	}
 
+	// Dots for visual throwing
 	void PrepareDots()
 	{
 		dotsList = new Transform[dotsNumber];
@@ -45,6 +45,7 @@ public class Trajectory : MonoBehaviour
 		}
 	}
 
+	// Updating dots on throw
 	public void UpdateDots(Vector3 ballPos, Vector2 forceApplied)
 	{
 		timeStamp = dotSpacing;
@@ -53,21 +54,18 @@ public class Trajectory : MonoBehaviour
 			pos.x = (ballPos.x + forceApplied.x * timeStamp);
 			pos.y = (ballPos.y + forceApplied.y * timeStamp) - (Physics2D.gravity.magnitude * timeStamp * timeStamp) / 2f;
 
-			//you can simlify this 2 lines at the top by:
-			//pos = (ballPos+force*time)-((-Physics2D.gravity*time*time)/2f);
-			//
-			//but make sure to turn "pos" in Ball.cs to Vector2 instead of Vector3	
-
 			dotsList[i].position = pos;
 			timeStamp += dotSpacing;
 		}
 	}
 
+	// Showing dots 
 	public void Show()
 	{
 		dotsParent.SetActive(true);
 	}
 
+	// Hiding dots
 	public void Hide()
 	{
 		dotsParent.SetActive(false);
