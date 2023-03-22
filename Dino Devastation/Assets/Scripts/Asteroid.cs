@@ -5,69 +5,69 @@ using UnityEngine.SceneManagement;
 
 public class Asteroid : MonoBehaviour
 {
-	[HideInInspector] public Rigidbody2D rb;
-	[HideInInspector] public CircleCollider2D col;
-	
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public CircleCollider2D col;
 
-	[HideInInspector] public Vector3 pos { get { return transform.position; } }
+
+    [HideInInspector] public Vector3 pos { get { return transform.position; } }
     public Camera mainCamera;
-	public Camera secondCamera;
-	
-	public static float counter;
-	public static float counter2;
-	public static string instance;
+    public Camera secondCamera;
+
+    public static float counter;
+    public static float counter2;
+    public static string instance;
     public bool respawnOnlyWhenThrown = true;
-	public HealthManager healthManager;
-	public HealthManager healthManager0;
-	public HealthManager healthManager1;
-	public HealthManager healthManager2;
-	private Vector2 initialPosition;
+    public HealthManager healthManager;
+    public HealthManager healthManager0;
+    public HealthManager healthManager1;
+    public HealthManager healthManager2;
+    private Vector2 initialPosition;
 
-	private float damage = 15f;
-	
-	void Awake()
-	{
-		rb = GetComponent<Rigidbody2D>();
-		col = GetComponent<CircleCollider2D>();
-	}
+    private float damage = 15f;
 
-	public void Push(Vector2 force)
-	{
-		rb.AddForce(force, ForceMode2D.Impulse);
-	}
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CircleCollider2D>();
+    }
 
-	public void ActivateRb()
-	{
-		rb.isKinematic = false;
-	}
+    public void Push(Vector2 force)
+    {
+        rb.AddForce(force, ForceMode2D.Impulse);
+    }
 
-	public void DesactivateRb()
-	{
-		rb.velocity = Vector3.zero;
-		rb.angularVelocity = 0f;
-		rb.isKinematic = true;
-	}
-	public float respawnTime = 2f;
+    public void ActivateRb()
+    {
+        rb.isKinematic = false;
+    }
+
+    public void DesactivateRb()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0f;
+        rb.isKinematic = true;
+    }
+    public float respawnTime = 2f;
     public float respawnOffset = 0.5f;
     public float respawnThreshold = 0.01f;
     private bool thrown = false;
 
-    
+
     private Vector3 startPos;
     private Quaternion startRot;
     private float timeSinceStop;
     private bool isMoving;
 
-	void Start()
+    void Start()
     {
-		initialPosition = transform.position;
-		rb = GetComponent<Rigidbody2D>();
+        initialPosition = transform.position;
+        rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         startRot = transform.rotation;
         timeSinceStop = 0f;
         isMoving = false;
     }
-	public void ThrowObject(Vector3 force)
+    public void ThrowObject(Vector3 force)
     {
         rb.AddForce(force, ForceMode2D.Impulse);
         thrown = true; // Mark the object as thrown
@@ -79,7 +79,7 @@ public class Asteroid : MonoBehaviour
         {
             timeSinceStop = 0f;
             isMoving = true;
-			
+
         }
         else
         {
@@ -93,139 +93,87 @@ public class Asteroid : MonoBehaviour
             Vector3 screenPos = mainCamera.WorldToViewportPoint(transform.position);
             if (screenPos.x < 0f || screenPos.x > 1f || screenPos.y < 0f || screenPos.y > 1f)
             {
-				thrown=true;
-				gameObject.SetActive(false);
+                thrown = true;
+                gameObject.SetActive(false);
                 Respawn();
             }
         }
 
         // Respawn the object if it has stopped moving for the specified time
-        if (!isMoving &&  timeSinceStop  >= respawnTime && thrown == true)
+        if (!isMoving && timeSinceStop >= respawnTime && thrown == true)
         {
-			thrown=true;
-			gameObject.SetActive(false);
+            thrown = true;
+            gameObject.SetActive(false);
             Respawn();
-			
+
         }
     }
-	IEnumerator RespawnCoroutine(float timeToRespawn)
+    IEnumerator RespawnCoroutine(float timeToRespawn)
     {
-        
-         if (thrown){ 
-		
-		
-		yield return new WaitForSeconds(timeToRespawn);
-		gameObject.SetActive(true);
-		transform.position = startPos;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0f;
-		thrown = false;
-		secondCamera.enabled = true;
-		mainCamera.enabled = false;
-	
-		
-		 }
+
+        if (thrown)
+        {
+            yield return new WaitForSeconds(timeToRespawn);
+            gameObject.SetActive(true);
+            transform.position = startPos;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0f;
+            thrown = false;
+            secondCamera.enabled = true;
+            mainCamera.enabled = false;
+        }
     }
 
     public void Respawn()
     {
-		//Destroy(GameObject.FindWithTag("Asteroid"));
-		gameObject.SetActive(false);
-		mainCamera.enabled = true;
-		MonoBehaviour camMono = Camera.main.GetComponent<MonoBehaviour>();
-//Use it to start your coroutine function
+        // Respawning asteroid
+        gameObject.SetActive(false);
+        mainCamera.enabled = true;
+        MonoBehaviour camMono = Camera.main.GetComponent<MonoBehaviour>();
+        //Use it to start your coroutine function
         camMono.StartCoroutine(RespawnCoroutine(2f));
-		
-        
-        
-		
-        
-		
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-
-		// Do this for each dino
-		if (collision.gameObject.CompareTag("BDR"))
+        // Call IfHit when each dino is hit with asteroid
+        if (collision.gameObject.CompareTag("BDR"))
         {
-			var BDR = GameObject.FindWithTag("BDR");
-			counter = counter + damage;
-			healthManager.TakeDamage(damage);
-			if(healthManager.healthAmount+healthManager0.healthAmount <= 0)
-			{
-				instance = "Red";
-				PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
-				SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
-			}
-			if(healthManager.healthAmount <= 0)
-			{
-				//Destroy(BDR);
-				BDR.SetActive(false);
-			}
-			Debug.Log("Damage Done :" + damage);
+            IfHit(GameObject.FindWithTag("BDR"), healthManager, healthManager0, "Red");
+        }
+        if (collision.gameObject.CompareTag("BDL"))
+        {
+            IfHit(GameObject.FindWithTag("BDL"), healthManager0, healthManager, "Red");
 
-		}
-		if (collision.gameObject.CompareTag("BDL"))
-		{
-			
-			var BDL = GameObject.FindWithTag("BDL");
-			counter = counter + damage;
-			healthManager0.TakeDamage(damage);
-			if(healthManager0.healthAmount+healthManager.healthAmount <= 0)
-			{
-				instance = "Red";
-				PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
-				SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
-			}
-			if(healthManager0.healthAmount <= 0)
-			{
-				//Destroy(BDL);
-				BDL.SetActive(false);
-			}
-			Debug.Log("Damage Done :" + damage);
+        }
+        if (collision.gameObject.CompareTag("RDR"))
+        {
+            IfHit(GameObject.FindWithTag("RDR"), healthManager1, healthManager2, "Blue");
 
-		}
-		if (collision.gameObject.CompareTag("RDR"))
-		{
-			
-			var RDR = GameObject.FindWithTag("RDR");
-			counter2 = counter2 + damage;
-			healthManager1.TakeDamage(damage);
-			if(healthManager1.healthAmount+healthManager2.healthAmount <= 0)
-			{
-				instance = "Blue";
-				PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
-				SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
-			}
-			if(healthManager1.healthAmount <= 0)
-			{
-				//Destroy(RDR);
-				RDR.SetActive(false);
-			}
-			Debug.Log("Damage Done :" + damage);
+        }
+        if (collision.gameObject.CompareTag("RDL"))
+        {
+            IfHit(GameObject.FindWithTag("RDL"), healthManager2, healthManager1, "Blue");
+        }
+    }
 
-		}
-		if (collision.gameObject.CompareTag("RDL"))
-		{
-			
-			var RDL = GameObject.FindWithTag("RDL");
-			counter2 = counter2 + damage;
+    // Function to handle when dino is hit with asteroid
+    public void IfHit(GameObject dino, HealthManager healthManagerOne, HealthManager healthManagerTwo, string color)
+    {
+        counter = counter + damage;
+        healthManagerOne.TakeDamage(damage);
+        if (healthManagerOne.healthAmount + healthManagerTwo.healthAmount <= 0)
+        {
+            instance = color;
+            PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
+        }
+        if (healthManagerOne.healthAmount <= 0)
+        {
+            dino.SetActive(false);
+        }
 
-			healthManager2.TakeDamage(damage);
-			if (healthManager1.healthAmount+healthManager2.healthAmount <= 0)
-			{
-				instance = "Blue";
-				PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
-				SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
-			}
-			if(healthManager2.healthAmount <= 0)
-			{
-				//Destroy(RDL);
-				RDL.SetActive(false);
-			}
-			Debug.Log("Damage Done :" + damage);
+    }
 
-		}
-	}
 }

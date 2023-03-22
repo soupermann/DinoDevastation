@@ -5058,6 +5058,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 2.4
   frequency: 2
+  healthManager: {fileID: 143187119}
+  healthManager0: {fileID: 1445486147}
+  healthManager1: {fileID: 1773212208}
+  healthManager2: {fileID: 1987996043}
 --- !u!1 &1082550513
 GameObject:
   m_ObjectHideFlags: 0
@@ -11119,6 +11123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08cc41f4bad1438a8d7e52330a25849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthManager: {fileID: 143187119}
+  healthManager0: {fileID: 1445486147}
+  healthManager1: {fileID: 1773212208}
+  healthManager2: {fileID: 1987996043}
 --- !u!61 &1969454024
 BoxCollider2D:
   m_ObjectHideFlags: 0

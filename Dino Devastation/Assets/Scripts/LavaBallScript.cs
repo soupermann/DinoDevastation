@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LavaBallScript : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class LavaBallScript : MonoBehaviour
     public float frequency = 2.0f;  // the speed at which the ball will move
 
     private float startY;  // the initial y position of the ball
+
+    public HealthManager healthManager;
+    public HealthManager healthManager0;
+    public HealthManager healthManager1;
+    public HealthManager healthManager2;
+
+    public static string instance;
 
     void Start()
     {
@@ -21,22 +29,56 @@ public class LavaBallScript : MonoBehaviour
 
         // update the ball's position
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-    }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("BDL") || collision.gameObject.CompareTag("BDR") || collision.gameObject.CompareTag("RDL") || collision.gameObject.CompareTag("RDR"))
+        // Make sure game ends when dinos die
+        if (healthManager.healthAmount + healthManager0.healthAmount <= 0)
         {
-            collision.gameObject.SetActive(false);
-            //Destroy(collision.gameObject);
-            // TODO : CALL DIE WHEN WE HAVE DYING ANNIMATION
+            instance = "Red";
+            PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
+        }
+        // Make sure game ends when dinos die
+        if (healthManager1.healthAmount + healthManager2.healthAmount <= 0)
+        {
+            instance = "Blue";
+            PlayerPrefs.SetInt("lastLevel", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Scoresheet", LoadSceneMode.Single);
         }
     }
 
-    void Die()
+
+
+    // Make dinos die when collided
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        // TODO : Probably best to set players health to 0 and then have trigger when health is 0 he dies
+        if (collision.gameObject.CompareTag("BDL"))
+        {
+            Die(collision.gameObject, healthManager0);
+        }
+
+        if (collision.gameObject.CompareTag("BDR"))
+        {
+            Die(collision.gameObject, healthManager);
+
+        }
+        if (collision.gameObject.CompareTag("RDL"))
+        {
+            Die(collision.gameObject, healthManager2);
+
+        }
+        if (collision.gameObject.CompareTag("RDR"))
+        {
+            Die(collision.gameObject, healthManager1);
+
+        }
+
     }
 
+    // Die function so player is out of the game.
+    void Die(GameObject dieObject, HealthManager health)
+    {
+        dieObject.SetActive(false);
+        health.healthAmount = 0; // Make sure player is counted as dead for game over animation
+    }
 
 }
