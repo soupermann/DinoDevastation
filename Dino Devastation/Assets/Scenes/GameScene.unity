@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1199917246}
+  asteroid: {fileID: 0}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 407585509}
+  asteroid: {fileID: 407585509}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -3186,7 +3186,7 @@ MonoBehaviour:
   selectedWall: 0
   selectedRun: 0
   selectedAsteroid: 0
-  turnTimeLimit: 15
+  turnTimeLimit: 20
 --- !u!4 &518589197
 Transform:
   m_ObjectHideFlags: 0
@@ -6432,7 +6432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1199917246}
+  asteroid: {fileID: 1199917246}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -7193,7 +7193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 407585509}
+  asteroid: {fileID: 1199917246}
   trajectory: {fileID: 1925955175}
   pushForce: 4
   hasBeenThrown: 0
@@ -7904,7 +7904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1430846149}
+  asteroid: {fileID: 1430846149}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -8763,7 +8763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1199917246}
+  asteroid: {fileID: 407585509}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -8811,7 +8811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2134124748}
+  asteroid: {fileID: 2134124748}
   trajectory: {fileID: 1498498555}
   pushForce: 4
   hasBeenThrown: 0
@@ -9926,7 +9926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1199917246}
+  asteroid: {fileID: 0}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
@@ -10053,7 +10053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1430846149}
+  asteroid: {fileID: 2134124748}
   trajectory: {fileID: 108075864}
   pushForce: 4
   hasBeenThrown: 0
@@ -12270,7 +12270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c4d983721d4014b8178bbbe8ab813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2134124748}
+  asteroid: {fileID: 2134124748}
   trajectory: {fileID: 425227239}
   pushForce: 4
   hasBeenThrown: 0
